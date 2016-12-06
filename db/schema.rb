@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206163048) do
+ActiveRecord::Schema.define(version: 20161206165936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20161206163048) do
     t.string   "media"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.index ["movie_id"], name: "index_collections_on_movie_id", using: :btree
+    t.index ["user_id"], name: "index_collections_on_user_id", using: :btree
   end
 
   create_table "movies", force: :cascade do |t|
@@ -36,8 +40,12 @@ ActiveRecord::Schema.define(version: 20161206163048) do
   end
 
   create_table "tag_collections", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "tag_id"
+    t.integer  "collection_id"
+    t.index ["collection_id"], name: "index_tag_collections_on_collection_id", using: :btree
+    t.index ["tag_id"], name: "index_tag_collections_on_tag_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -63,4 +71,8 @@ ActiveRecord::Schema.define(version: 20161206163048) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "collections", "movies"
+  add_foreign_key "collections", "users"
+  add_foreign_key "tag_collections", "collections"
+  add_foreign_key "tag_collections", "tags"
 end
