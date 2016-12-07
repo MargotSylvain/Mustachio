@@ -1,6 +1,6 @@
 class Collection < ApplicationRecord
   belongs_to :movie
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   has_many :tags, through: :tag_collections
   has_many :tag_collections
