@@ -15,24 +15,24 @@ class CollectionsController < ApplicationController
   def create
     @collection = Collection.new(collection_params)
     @collection.save
-  #   redirect_to collections_path(@collection)
+    redirect_to collections_path(@collection)
   end
 
-  def edit
-    @collection = Collection.find(params[:id])
-  end
+  # def edit
+  #   @collection = Collection.find(params[:id])
+  # end
 
-  def update
-    @collection = Collection.find(params[:id])
-    @collection.update(collection_params)
-  #   redirect_to collections_path(@collection)
-  end
+  # def update
+  #   @collection = Collection.find(params[:id])
+  #   @collection.update(collection_params)
+  # #   redirect_to collections_path(@collection)
+  # end
 
-  def destroy
-    @collection = Collection.find(params[:id])
-    @collection.destroy
-    redirect_to collections_path
-  end
+  # def destroy
+  #   @collection = Collection.find(params[:id])
+  #   @collection.destroy
+  #   redirect_to collections_path
+  # end
 
   private
   def set_collection
