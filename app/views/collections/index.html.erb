@@ -1,4 +1,5 @@
 <p>Collection</p>
 <% @collections.each do |collection| %>
-  <p><%= link_to collection.movie_id, collection_path(collection) %></p>
+  <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
+  <p><%= link_to film, collection_path(collection) %></p>
 <% end %>
