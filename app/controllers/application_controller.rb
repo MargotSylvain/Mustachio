@@ -12,5 +12,3 @@ class ApplicationController < ActionController::Base
 end
 
 
-
-# JSON.parse(Tmdb::Search.movie('the matrix').to_json)['table']['results'][0]['table']['title']
