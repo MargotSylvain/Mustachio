@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
          has_many :tags, through: :collections
-         has_many :collections
+         has_many :collections, dependent: :destroy
          has_many :movies, through: :collections
 
          validates :first_name, :last_name, :username, :email, presence: true
