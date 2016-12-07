@@ -4,6 +4,9 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-plugin'
 end
 
+#gem for fb connect
+gem 'omniauth-facebook'
+
 gem 'figaro'
 
 gem 'devise'
