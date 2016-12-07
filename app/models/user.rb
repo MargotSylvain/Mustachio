@@ -5,11 +5,15 @@ class User < ApplicationRecord
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+         has_many :tags, through: :collections
+         has_many :collections
+         has_many :movies, through: :collections
 
-
+         validates :first_name, :last_name, :username, :email, presence: true
+         validates :username, uniqueness: {scope: :email}
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
