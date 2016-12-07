@@ -7,6 +7,10 @@ end
 #gem for fb connect
 gem 'omniauth-facebook'
 
+#gems for uploading pictures
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
+
 gem 'figaro'
 
 gem 'devise'

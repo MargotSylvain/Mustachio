@@ -1,10 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  mount_uploader :photo, UserPhotoUploader
+
+
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-
 
          has_many :tags, through: :collections
          has_many :collections
@@ -12,9 +14,6 @@ class User < ApplicationRecord
 
          validates :first_name, :last_name, :username, :email, presence: true
          validates :username, uniqueness: {scope: :email}
-
-
-
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
@@ -35,5 +34,4 @@ class User < ApplicationRecord
 
     return user
   end
->>>>>>> master
 end
