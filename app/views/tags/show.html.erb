@@ -1,2 +1,13 @@
-<h1>Tags#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
+<h3><%=@tag.name%></h3>
+
+<%= link_to "Edit", edit_tag_path %>
+<%= link_to 'Delete', tag_path(@tag), method: :delete %>
+<%=link_to "Back to all tags", tags_path %>
+
+<p>Here are all the movies you tagged <%=@tag.name%></p>
+
+
+<p><%@tag.collections.each do |collection|%></p>
+  <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
+  <p><%= link_to film %></p>
+<%end%>

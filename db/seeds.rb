@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Destroy all
+Tag.destroy_all
 Collection.destroy_all
 Movie.destroy_all
 User.destroy_all
@@ -28,4 +29,13 @@ movie_1 = Movie.create(
 collection_1 = Collection.create(
   movie_id: movie_1.id,
   user_id: user_1.id
+  )
+
+tag_1 = Tag.create(
+  name: "test tag"
+  )
+
+tag_collections_1 = TagCollection.create(
+    tag_id: tag_1.id,
+    collection_id: collection_1.id
   )

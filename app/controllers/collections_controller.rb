@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
     before_action :set_collection, only: [:show]
-    def index
+  def index
     current_user.collections = Collection.all
   end
 
