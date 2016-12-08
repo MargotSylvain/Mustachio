@@ -5,12 +5,28 @@
 
 
 #bg-landing {
-  background-image: url("bg-landing.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
+  background-image: url("bg-landing2.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
   background-repeat: no-repeat;
   background-size: cover;
-  // height: 1024px;
+  height: 100vh;
+  // background: url("bg-landing.jpg") no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
 }
 
 .white{
   color: white
 }
+
+// .content-landing-box{
+//   display: flex;
+//   // background-color: transparent;
+//   justify-content: space-around;
+//   align-items: center;
+// }
+
+// .content-landing{
+//   flex: 0 1 auto;
+// }
