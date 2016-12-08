@@ -31,15 +31,25 @@ class PagesController < ApplicationController
     require 'json'
     require 'open-uri'
 
+    # call imdb api for basic for movieID
     url = "https://www.omdbapi.com/?t=#{@title}&y=#{@year}&plot=short&r=json"
-
     movie = open(url).read
-
     movie_obj = JSON.parse(movie)
-    raise
+
     @imdb_id = movie_obj["imdbID"] #=> returns id as a string
     @imdb_title = movie_obj["Title"] #=> returns id as a string
     @imdb_genre = movie_obj["Genre"]
+
+    # find backdrops in tmd:
+    search = Tmdb::Find.movie(@imdb_id, external_source: 'imdb_id')
+
+    json_search = search.to_json
+
+    @parsed_tmdb  = JSON.parse(json_search)
+
+    # @tmdb_title = @parsed_tmdb[0]['table']['results'][0]['table']['title']
+    @tmdb_title = @parsed_tmdb[0]['table']['backdrop_path']
+    raise
   end
 
 end
