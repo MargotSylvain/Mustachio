@@ -8,10 +8,11 @@
 
 
 <!--basic search to movie index 1.1-->
-<%= form_tag(movies_path, method: "get") do %>
-  <%= label_tag(:title, "search title:") %>
+<%= form_for(search_path, method: "post") do %>
+  <%= label_tag(:title, "title:") %>
   <%= text_field_tag(:title) %>
-  <%= label_tag(:year, "search year:") %>
+  <%= label_tag(:year, "year:") %>
   <%= text_field_tag(:year) %>
   <%= submit_tag("Search") %>
 <% end %>
+<!-- ^ if this is to work, you must delete the [:movie] on the pages controller

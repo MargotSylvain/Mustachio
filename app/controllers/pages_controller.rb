@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
     skip_before_action :authenticate_user!, only: [:home,:search]
-
+    # ^ :search authentication will be enable upon
   def home
 
   end
@@ -13,6 +13,7 @@ class PagesController < ApplicationController
       if @movie.any?
         @movie
         raise
+        redirect_to search_path, @movie
       else
             # Call api
         @movie = call_api
@@ -21,7 +22,7 @@ class PagesController < ApplicationController
             # Store on database
             # Send the object to views
         redirect_to search_path, @movie
-
+            # ^ this happens by default
       end
   end
 
