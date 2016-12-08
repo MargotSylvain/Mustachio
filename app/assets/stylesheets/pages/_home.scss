@@ -16,9 +16,22 @@
   // background-size: cover;
 }
 
-.white{
-  color: white
+#landing a{
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.75vh;
+  text-decoration: none;
 }
+
+#landing a:hover{
+  color: #85EBBC;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.75vh;
+  text-decoration: none;
+}
+
 
 // .content-landing-box{
 //   display: flex;
