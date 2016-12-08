@@ -1,11 +1,10 @@
 class CollectionsController < ApplicationController
-    before_action :set_collection, only: [:show, :edit, :update, :destroy]
+    before_action :set_collection, only: [:show]
     def index
-    @collections = Collection.all
+    current_user.collections = Collection.all
   end
 
   def show
-    @collection = Collection.find(params[:id])
   end
 
   def new
