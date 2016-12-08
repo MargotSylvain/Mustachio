@@ -1,0 +1,17 @@
+<!--binding to object 2.2-->
+ <%= simple_form_for :movie, url: search_path do |f| %>
+    <%= f.input :title, as: :string, class: "form-control", placeholder: 'input title', label: 'title' %>
+    <%= f.input :year, as: :integer, class: "form-control", placeholder: 'input year', label: 'year' %>
+  </div>
+    <%= f.submit "search", class: "btn btn-primary" %>
+    <% end %>
+
+
+<!--basic search to movie index 1.1-->
+<%= form_tag(movies_path, method: "get") do %>
+  <%= label_tag(:title, "search title:") %>
+  <%= text_field_tag(:title) %>
+  <%= label_tag(:year, "search year:") %>
+  <%= text_field_tag(:year) %>
+  <%= submit_tag("Search") %>
+<% end %>
