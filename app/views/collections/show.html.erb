@@ -1,2 +1,6 @@
 <p><%= @collection.movie.title %></p>
 <p><%= @collection.movie.year %></p>
+
+<p><% @collection.tags.each do |tag|%></p>
+<p><%= tag.name%></p>
+<%end%>
