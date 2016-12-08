@@ -1,7 +1,7 @@
 class CollectionsController < ApplicationController
     before_action :set_collection, only: [:show]
   def index
-    @collections = Collection.all
+    @collections = current_user.collections
   end
 
   def show
@@ -13,6 +13,7 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = Collection.new(collection_params)
+    @tag.user = current_user
     @collection.save
     redirect_to collections_path(@collection)
   end

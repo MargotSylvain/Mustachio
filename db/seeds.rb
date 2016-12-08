@@ -27,8 +27,8 @@ movie_1 = Movie.create(
   )
 
 collection_1 = Collection.create(
-  movie_id: movie_1.id,
-  user_id: user_1.id
+  movie: movie_1,
+  user: user_1
   )
 
 tag_1 = Tag.create(
@@ -36,8 +36,8 @@ tag_1 = Tag.create(
   )
 
 tag_collections_1 = TagCollection.create(
-    tag_id: tag_1.id,
-    collection_id: collection_1.id
+    tag: tag_1,
+    collection: collection_1
   )
 
 
@@ -49,12 +49,12 @@ user_2 = User.create(
   password: "password"
 )
 
-movie_1 = Movie.create(
+movie_2 = Movie.create(
   title: "test_movie_2",
   year: 2017
   )
 
-collection_1 = Collection.create(
-  movie_id: movie_2.id,
-  user_id: user_2.id
+collection_2 = Collection.create(
+  movie: movie_2,
+  user: user_2
   )
