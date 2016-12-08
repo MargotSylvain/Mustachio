@@ -39,3 +39,22 @@ tag_collections_1 = TagCollection.create(
     tag_id: tag_1.id,
     collection_id: collection_1.id
   )
+
+
+user_2 = User.create(
+  first_name: "John",
+  last_name: "Doe",
+  username: "John Doe",
+  email: "john@gmail.com",
+  password: "password"
+)
+
+movie_1 = Movie.create(
+  title: "test_movie_2",
+  year: 2017
+  )
+
+collection_1 = Collection.create(
+  movie_id: movie_2.id,
+  user_id: user_2.id
+  )
