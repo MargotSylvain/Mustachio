@@ -14,4 +14,5 @@ root to: 'pages#home'
     # Margot: for testing collections
     resources :collections
     resources :tags
+    resources :movies, only: [:show]
 end
