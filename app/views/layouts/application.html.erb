@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <% unless controller_name == "pages" && action_name == 'home' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+    <div class="nav-offset" style='height:60px;'></div>
+    <%= render 'shared/flashes' %>
     <%= yield %>
+    <% unless controller_name == "pages" && action_name == 'home' %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
   </body>
 </html>
