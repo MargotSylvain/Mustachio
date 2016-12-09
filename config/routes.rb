@@ -8,11 +8,8 @@ root to: 'pages#home'
     # resources :collections do
     #   resources :tags
     # end
-    # may need to add routes for tag
-    # resources :movies, only: [:index, :show, :new, :create]
-
-    # Margot: for testing collections
     resources :collections
     resources :tags
     resources :movies, only: [:show]
+    post "search", to: "pages#search"
 end
