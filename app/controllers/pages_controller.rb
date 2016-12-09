@@ -8,6 +8,8 @@ class PagesController < ApplicationController
   def friends
     @users = User.all
     @user = User.find(current_user)
+    @friends_array = []
+    @friends_array
   end
 
   def search
