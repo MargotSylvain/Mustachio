@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161209173812) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +48,17 @@ ActiveRecord::Schema.define(version: 20161209173812) do
     t.integer  "year"
     t.string   "imdb_id"
     t.string   "mdb_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "collection_id"
+    t.float    "my_rating"
+    t.string   "phrase"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["collection_id"], name: "index_reviews_on_collection_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
   create_table "tag_collections", force: :cascade do |t|
@@ -94,6 +106,8 @@ ActiveRecord::Schema.define(version: 20161209173812) do
   add_foreign_key "collections", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "reviews", "collections"
+  add_foreign_key "reviews", "users"
   add_foreign_key "tag_collections", "collections"
   add_foreign_key "tag_collections", "tags"
 end

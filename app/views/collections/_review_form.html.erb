@@ -1,0 +1,9 @@
+
+    <div class="col-xs-12">
+    <%= simple_form_for [@collection, @review] do |f| %>
+      <%= f.input :my_rating, as: :float, class: "form-control", placeholder: '3.9', label: false %>
+      <%= f.input :phrase, as: :string, class: "form-control", placeholder: 'best cinematography', label: false %>
+      <%= f.submit "publish review", class: "btn btn-primary"%>
+    <% end %>
+    </div>
+

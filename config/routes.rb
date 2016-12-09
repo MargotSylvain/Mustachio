@@ -8,7 +8,9 @@ root to: 'pages#home'
     # resources :collections do
     #   resources :tags
     # end
-    resources :collections
+    resources :collections do
+      resources :reviews
+    end
     resources :tags
     resources :movies, only: [:show]
     resources :friendships
