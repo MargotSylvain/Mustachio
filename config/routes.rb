@@ -11,5 +11,7 @@ root to: 'pages#home'
     resources :collections
     resources :tags
     resources :movies, only: [:show]
+    resources :friendships
     post "search", to: "pages#search"
+    get "friends", to: "pages#friends"
 end
