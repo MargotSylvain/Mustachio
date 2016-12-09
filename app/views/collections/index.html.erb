@@ -1,5 +1,8 @@
-<p>Collection</p>
-<% @collections.each do |collection| %>
+
+<div >
+  <p>Collection</p>
+  <% @collections.each do |collection| %>
   <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
   <p><%= link_to film, collection_path(collection) %></p>
-<% end %>
+  <% end %>
+</div>

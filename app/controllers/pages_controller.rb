@@ -3,7 +3,6 @@ class PagesController < ApplicationController
     skip_before_action :authenticate_user!, only: [:home,:search]
     # ^ :search authentication will be enable upon
   def home
-
   end
   def search
       @title = params[:movie][:title]
