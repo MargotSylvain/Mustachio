@@ -11,6 +11,7 @@ class User < ApplicationRecord
          has_many :tags, through: :collections
          has_many :collections, dependent: :destroy
          has_many :movies, through: :collections
+         has_many :reviews
 
          validates :first_name, :last_name, :username, :email, presence: true
          validates :username, uniqueness: {scope: :email}
