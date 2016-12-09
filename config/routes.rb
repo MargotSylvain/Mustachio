@@ -13,5 +13,7 @@ root to: 'pages#home'
     end
     resources :tags
     resources :movies, only: [:show]
+    resources :friendships
     post "search", to: "pages#search"
+    get "friends", to: "pages#friends"
 end

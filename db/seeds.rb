@@ -23,6 +23,22 @@ user_1 = User.create(
   password: "password"
 )
 
+user_2 = User.create(
+  first_name: "John",
+  last_name: "Doe",
+  username: "John Doe",
+  email: "john@gmail.com",
+  password: "password"
+)
+
+user_3 = User.create(
+  first_name: "Margot",
+  last_name: "Sylvain",
+  username: "Margot",
+  email: "margot.sylvain@gmail.com",
+  password: "password"
+)
+
 movie_1 = Movie.create(
   title: "Inception",
   year: 2016
@@ -61,13 +77,7 @@ tag_collections_2 = TagCollection.create(
   )
 
 
-user_2 = User.create(
-  first_name: "John",
-  last_name: "Doe",
-  username: "John Doe",
-  email: "john@gmail.com",
-  password: "password"
-)
+
 
 movie_2 = Movie.create(
   title: "test_movie_2",

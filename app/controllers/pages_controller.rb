@@ -4,6 +4,14 @@ class PagesController < ApplicationController
     # ^ :search authentication will be enable upon
   def home
   end
+
+  def friends
+    @users = User.all
+    @user = User.find(current_user)
+    @friends_array = []
+    @friends_array
+  end
+
   def search
       @title = params[:movie][:title]
       @year = params[:movie][:year]
