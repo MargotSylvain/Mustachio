@@ -16,4 +16,5 @@ root to: 'pages#home'
     resources :friendships
     post "search", to: "pages#search"
     get "friends", to: "pages#friends"
+    get "about", to: "pages#about"
 end
