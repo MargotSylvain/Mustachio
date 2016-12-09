@@ -13,10 +13,10 @@
   <body>
     <% unless controller_name == "pages" && action_name == 'home' %>
       <%= render 'shared/navbar' %>
+      <div class="nav-offset" style='margin-top:110px;'> <%= render 'shared/search_bar'  %></div>
+
     <% end %>
-    <div class="nav-offset" style='height:110px;'></div>
       <%= render 'shared/flashes' %>
-      <%= render 'shared/search_bar'  %>
       <%= yield %>
     <% unless controller_name == "pages" && action_name == 'home' %>
       <%= render 'shared/footer' %>
