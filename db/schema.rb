@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210140958) do
+ActiveRecord::Schema.define(version: 20161210142906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20161210140958) do
     t.string   "imdb_id"
     t.string   "mdb_id"
     t.integer  "media_type"
+    t.string   "genre"
   end
 
   create_table "reviews", force: :cascade do |t|
