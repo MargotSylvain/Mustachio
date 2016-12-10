@@ -52,7 +52,7 @@ class PagesController < ApplicationController
     imdb_synopsis = movie_obj["Plot"]
     # imdb photo works without using api routes or paths
     imdb_photo = movie_obj["Poster"]
-    imdb_media_type = "movie"
+    imdb_media_type = 1
     imdb_year = movie_obj["Year"].to_i
     imdb_id = movie_obj["imdbID"] #=> returns id as a string
     imdb_genre = movie_obj["Genre"]
