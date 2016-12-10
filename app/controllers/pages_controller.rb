@@ -20,7 +20,8 @@ class PagesController < ApplicationController
       if @movie.any?
         @movie
         raise
-        redirect_to search_path, @movie
+        flash[:notice] = 'Here is what we found'
+        redirect_to collections_path
       else
             # Call api
         @movie = call_api
@@ -28,7 +29,8 @@ class PagesController < ApplicationController
             # Create object with all params
             # Store on database
             # Send the object to views
-        redirect_to search_path, @movie
+        flash[:notice] = 'Is this your movie?'
+        redirect_to collections_path
             # ^ this happens by default
       end
   end
@@ -66,8 +68,8 @@ class PagesController < ApplicationController
     # @tmdb_title = @parsed_tmdb[0]['table']['results'][0]['table']['title']
     tmdb_id = parsed_tmdb[0]['table']['id']
     tmdb_back_drop = "https://image.tmdb.org/t/p/original/#{parsed_tmdb[0]['table']['backdrop_path']}"
-    raise
-    #Movie.create(title: imdb_title, synopsis: imdb_synopsis, photo: imdb_photo, backdrop: tmdb_back_drop, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id)
+
+    Movie.create(title: imdb_title, synopsis: imdb_synopsis, photo: imdb_photo, backdrop: tmdb_back_drop, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id)
   end
 
 end
