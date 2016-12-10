@@ -1,23 +1,25 @@
 <div class="navbar-mustachio navbar-mustachio-fixed">
   <!-- Logo -->
   <a href="/" class="navbar-mustachio-brand">
-    <%= image_tag 'mustachio-logo.png' %>
+    <%= image_tag 'mustachio-logo.png'%>
   </a>
 
   <!-- Right Navigation -->
   <div class="navbar-mustachio-right hidden-xs hidden-sm">
 
+     <%=link_to "Collection", collections_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
+
     <!-- Text link -->
     <%=link_to "Friends", friends_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
 
     <!-- Text link -->
-    <a href="" class="navbar-mustachio-item navbar-mustachio-link">Team</a>
+     <%=link_to "Must", collections_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
 
     <!-- Notification link-->
     <a href="" class="navbar-mustachio-item navbar-mustachio-link">
       <div class="badge-container">
         <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
+        <div class="badge badge-grey">3</div>
       </div>
     </a>
 
@@ -27,7 +29,6 @@
         <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-mustachio-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-mustachio-dropdown-menu">
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
           <li><a href="#">Log Out</a></li>
         </ul>
       </div>
@@ -39,9 +40,11 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-mustachio-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%=link_to "Collection", collections_path%></li>
+        <li><%=link_to "Friends", friends_path%></li>
+        <li><%=link_to "Must", collections_path%></li>
+        <li><a href="#">Profile</a></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></li>
       </ul>
     </div>
   </div>
