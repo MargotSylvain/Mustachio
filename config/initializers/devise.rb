@@ -14,7 +14,8 @@ Devise.setup do |config|
   # config.secret_key = ENV['DEVISE']
   Tmdb::Api.key(ENV['TMDB_API'])
   Tmdb::Api.language("en")
-  # config.secret_key = '23d95bf3d137ac4940ac219160428b2782ae98fcf1fcf5c2af5c26846f51bc4b085137dcf47a6ec420fef299163ed6c6a16e7db51dc95c8965966bd3c85e01a0'
+
+  config.secret_key = '23d95bf3d137ac4940ac219160428b2782ae98fcf1fcf5c2af5c26846f51bc4b085137dcf47a6ec420fef299163ed6c6a16e7db51dc95c8965966bd3c85e01a0'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
