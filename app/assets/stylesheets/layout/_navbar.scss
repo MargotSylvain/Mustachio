@@ -21,8 +21,9 @@
 
 /* Navbar logo */
 .navbar-mustachio-brand img {
-  width: 50px;
+  width: 100px;
 }
+
 
 /* Navbar right section (with form, links, button) */
 .navbar-mustachio-right {
@@ -30,6 +31,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 
 /* Navbar item */
 .navbar-mustachio-item {
@@ -40,63 +42,12 @@
 
 /* Navbar standard link */
 .navbar-mustachio-link {
-  color: #616668;
-  font-size: 14px;
+  color: white;
+  font-size: 20px;
 }
 .navbar-mustachio-link:hover {
-  color: #da552f;
+  color: #383838;
   text-decoration: none;
-}
-
-/* Navbar right button */
-.navbar-mustachio-button {
-  margin-left: 10px;
-  padding: 0 20px;
-  border-radius: 20em;
-  line-height: 40px;
-  background-color: #D23333;
-  color: white;
-  font-size: 14px;
-  border: 2px solid #D23333;
-}
-.navbar-mustachio-button:hover {
-  color: white;
-  background: #D23333;
-  border-color: #ac2626;
-}
-
-/* Navbar search form */
-.navbar-mustachio-search {
-  flex: 0 1 300px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px;
-  position: relative;
-}
-.navbar-mustachio-search-btn {
-  line-height: 40px;
-  color: #E6E6E6;
-  border: none;
-  background: transparent;
-  position: absolute;
-  right: 14px;
-  top: -2px;
-  z-index: 1;
-}
-.navbar-mustachio-search-input {
-  flex: 0 1 300px;
-  transition: all 0.15s ease;
-  line-height: 40px;
-  font-weight: lighter;
-  color: #666666;
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 14px;
-  outline: none;
-}
-.navbar-mustachio-search-input:focus  {
-  border: 1px solid #CCCCCC;
 }
 
 /* Navbar dropdown menu */
@@ -115,7 +66,7 @@
 }
 .navbar-mustachio-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: #383838 !important;
 }
 .navbar-mustachio-dropdown-menu:before {
   content: ' ';
