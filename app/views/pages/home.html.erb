@@ -10,12 +10,13 @@
         <div class="col-xs-12 text-center">
           <% if user_signed_in? %>
             <div><%=link_to "welcome", collections_path, class: 'btn btn-signin'%></div>
-            <div id='landing'>
+            <div id='sign-out'>
               <%= link_to 'sign out', destroy_user_session_path, method: :delete%>
             </div>
           <%else%>
-            <div>
-              <%=link_to "sign in", new_user_session_path, class: 'btn btn-signin'%>
+            <%=link_to "sign in", new_user_session_path, class: 'btn btn-signin'%>
+            <div id='sign-up'>
+              <%= link_to "Not on Mustachio?", new_user_registration_path %>
             </div>
           <% end %>
         </div>

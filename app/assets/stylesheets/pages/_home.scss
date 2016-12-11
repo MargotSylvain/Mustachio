@@ -9,14 +9,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  // background: url("bg-landing.jpg") no-repeat center center fixed;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
 }
 
-#landing a{
+#sign-out a{
   color: white;
   font-weight: lighter;
   font-style: italic;
@@ -24,7 +19,7 @@
   text-decoration: none;
 }
 
-#landing a:hover{
+#sign-out a:hover{
   color: #85EBBC;
   font-weight: lighter;
   font-style: italic;
@@ -32,14 +27,18 @@
   text-decoration: none;
 }
 
+#sign-up a{
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.75vh;
+  text-decoration: none;
+}
 
-// .content-landing-box{
-//   display: flex;
-//   // background-color: transparent;
-//   justify-content: space-around;
-//   align-items: center;
-// }
-
-// .content-landing{
-//   flex: 0 1 auto;
-// }
+#sign-up a:hover{
+  color: #85EBBC;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.75vh;
+  text-decoration: none;
+}

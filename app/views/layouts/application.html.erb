@@ -20,7 +20,7 @@
     <% end %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-    <% unless controller_name == "pages" && action_name == 'home' %>
+    <% unless controller_name == "pages" && action_name == 'home' || (controller_name == "sessions") || (controller_name == "registrations") %>
       <%= render 'shared/footer' %>
     <% end %>
   </body>
