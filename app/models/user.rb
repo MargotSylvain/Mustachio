@@ -13,7 +13,7 @@ class User < ApplicationRecord
          has_many :movies, through: :collections
          has_many :reviews, through: :collections
 
-         validates :first_name, :last_name, :username, :email, presence: true
+         validates :username, :email, presence: true
          validates :username, uniqueness: {scope: :email}
 
   # Add friendship to user

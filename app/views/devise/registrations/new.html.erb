@@ -1,34 +1,57 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-6">
-    <h3>Mustachio is a social media, based on media</h3>
-    <h4>Enjoy your me time</h4>
-    <h5>Collection</h5>
-    <p>Create your collection of movies</p>
-    <p>Customize your collection with lists, tags, ratings and movie review</p>
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    <h2>Sign up</h2>
+<div id="sign-up-page">
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :username, required: false, autofocus: true %>
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden %>
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center sign-in-title">
+      <%= image_tag 'welcome.png', class: 'welcome-logo' %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
 
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center", style='color: white'>
+      <h4>Enjoy your me time</h4>
+    </div>
+  </div>
+
+<!--  <div class="wrapper-green"> -->
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4", style='color: #383838'>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html=> { class: 'session-form' }) do |f| %>
+          <div class="form-inputs signup-card">
+            <%= f.input_field :username, required: false, autofocus: true, label: false, placeholder: "username", class: 'session-input'%>
+            <%= f.input_field :email, required: true, autofocus: true, label: false, placeholder: "email address", class: 'session-input' %>
+            <%= f.input_field :password, required: true , label: false, placeholder: "password", class: 'session-input'%>
+            <%= f.input_field :password_confirmation, required: true, label: false, placeholder: " confirm password", class: 'session-input' %>
+            <%= f.input :photo, label: false %>
+            <%= f.input :photo_cache, as: :hidden %>
+          <div class="form-actions text-center">
+            <%= image_submit_tag("logo-white.png", class: 'image-responsive sign-in-logo') %>
+          </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4 col-sm-offset-0", style='color: white'>
+        <h5 class=' text-center'>Collection</h5>
+        <p>Create your collection of movies</p>
+        <p>Customize your collection with lists, tags, ratings and movie review</p>
+        <h5 class=' text-center'>Friends</h5>
+        <p>Explore your friends's collections</p>
+        <p>Share your lists with your love ones</p>
+        <h5 class=' text-center'>Must</h5>
+        <p>See what you MUST see!!</p>
+        <p>No more time wasted choosing what to watch</p>
+      </div>
+  <!--   </div> -->
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center fb-signin">
+      <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to "sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+      <% end -%>
+      <% end -%>
+    </div>
+  </div>
 
 </div>
 

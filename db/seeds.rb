@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Destroy all
-
+Friendship.destroy_all
 Tag.destroy_all
 Collection.destroy_all
 TagCollection.destroy_all
@@ -31,13 +31,13 @@ user_2 = User.create(
   password: "password"
 )
 
-user_3 = User.create(
-  first_name: "Margot",
-  last_name: "Sylvain",
-  username: "Margot",
-  email: "margot.sylvain@gmail.com",
-  password: "password"
-)
+# user_3 = User.create(
+#   first_name: "Margot",
+#   last_name: "Sylvain",
+#   username: "Margot",
+#   email: "margot.sylvain@gmail.com",
+#   password: "password"
+# )
 
 movie_1 = Movie.create(
   title: "Inception",
