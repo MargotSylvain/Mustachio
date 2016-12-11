@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <% unless controller_name == "pages" && action_name == 'home'%>
+    <% unless (controller_name == "pages" && action_name == 'home') || (controller_name == "sessions") || (controller_name == "registrations")%>
       <%= render 'shared/navbar' %>
       <div class="nav-offset" style='margin-top:110px;'>
         <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about')%>

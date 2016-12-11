@@ -1,0 +1,21 @@
+#sign-in {
+  background-image: url("bg-landing2.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  // background: url("bg-landing.jpg") no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+}
+
+.sign-in-title{
+  color: white;
+  margin-top: 10vh;
+}
+
+.form-group label{
+  color: white;
+  margin-top: 5vh;
+}
