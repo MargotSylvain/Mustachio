@@ -1,8 +1,22 @@
+<% @collections.each do |collection| %>
+  <ul class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-2 movie-profiles-list-minimal">
+    <li>
+      <div class="movie-avatar">
+        <% avatar_url = collection.movie.backdrop || logo-user.png %>
+        <%= image_tag avatar_url , class: "avatar"%>
+      </div>
+      <p class="movie-name">
+        <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
+        <p><%= link_to film, collection_path(collection) %></p>
+        <span>
 
-<div >
-  <p>Collection</p>
-  <% @collections.each do |collection| %>
-  <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
-  <p><%= link_to film, collection_path(collection) %></p>
-  <% end %>
-</div>
+        </span>
+      </p>
+    </li>
+  </ul>
+<%end%>
+
+
+
+
+
