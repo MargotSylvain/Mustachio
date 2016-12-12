@@ -13,17 +13,35 @@
 </head>
 
 <body>
-  <% unless (controller_name == "pages" && action_name == 'home') || (controller_name == "sessions") || (controller_name == "registrations")%>
-  <%= render 'shared/navbar' %>
-  <div class="nav-offset" style='margin-top:80px;'>
-    <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about' || action_name == 'friends')%>
-    <%= render 'shared/search_bar'  %></div>
-    <% end %>
-    <% end %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <% unless controller_name == "pages" && action_name == 'home' || (controller_name == "sessions") || (controller_name == "registrations") %>
-    <%= render 'shared/footer' %>
-    <% end %>
-  </body>
-  </html>
+
+  <div id="wrapper">
+
+    <div id="">
+      <% unless (controller_name == "pages" && action_name == 'home') || (controller_name == "sessions") || (controller_name == "registrations")%>
+      <%= render 'shared/navbar' %>
+    </div><!-- #header -->
+
+    <div id="content">
+      <div class="nav-offset" style='margin-top:80px;'>
+        <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about' || action_name == 'friends')%>
+        <%= render 'shared/search_bar'  %></div>
+        <% end %>
+        <% end %>
+        <%= render 'shared/flashes' %>
+
+
+        <%= yield %>
+
+
+      </div>
+    </div><!-- #content -->
+
+    <div id="footer">
+        <% unless controller_name == "pages" && action_name == 'home' || (controller_name == "sessions") || (controller_name == "registrations") %>
+        <%= render 'shared/footer' %>
+        <% end %>
+    </div><!-- #footer -->
+
+  </div><!-- #wrapper -->
+</body>
+</html>

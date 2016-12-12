@@ -1,0 +1,40 @@
+.collection-menu {
+  position: fixed;
+  left: 0px;
+  top: 180px;
+  z-index: 1;
+  width: 120px;
+  height: 220px;
+  background-color: #85EBBC;
+  padding-top: 50px;
+}
+.collection-menu a,p{
+  color: #383838;
+  font-size: 14px;
+  padding: 10px;
+
+}
+.collection-menu a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.list-menu {
+  position: fixed;
+  right: 0px;
+  top: 180px;
+  z-index: 1;
+  width: 120px;
+  height: 220px;
+  background-color: #85EBBC;
+  padding-top: 50px;
+}
+.list-menu a,p{
+  color: #383838;
+  font-size: 14px;
+  padding: 10px;
+}
+.list-menu a:hover{
+  color: white;
+  text-decoration: none;
+}
