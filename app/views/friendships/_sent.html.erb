@@ -1,0 +1,33 @@
+<%number = 0 %>
+<% current_user.pending_friends.each do |friendship| %>
+<% number +=1 %>
+<% end %>
+<% if number == 0 %>
+<% else %>
+
+
+
+<h4>Requests sent</h4>
+
+<div id="users">
+  <% current_user.pending_friends.each do |friendship| %>
+  <div class="user">
+    <ul class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-2 user-profiles-list-minimal">
+      <li>
+        <div class="user-avatar">
+          <% avatar_url = friendship.facebook_picture_url || friendship.photo %>
+          <%= image_tag avatar_url , class: "avatar"%>
+        </div>
+        <p class="user-name">
+          <%= friendship.username%>
+          <span>
+            <%=pluralize(friendship.collections.size, 'Movie')%>
+            <%=pluralize(friendship.tags.size, 'Tag')%>
+          </span>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>
+<% end %>
