@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
-  mount_uploader :backdrop, BackdropPhotoUploader
-  mount_uploader :photo, MoviePhotoUploader
+# mount_uploader :backdrop, BackdropPhotoUploader
+
+# mount_uploader :photo, MoviePhotoUploader
   has_many :collections, dependent: :destroy
   has_many :users, through: :collections
 
