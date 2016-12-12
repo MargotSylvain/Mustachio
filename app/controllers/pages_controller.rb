@@ -32,6 +32,7 @@ class PagesController < ApplicationController
         flash[:notice] = 'Is this your movie?'
         redirect_to collections_path
             # ^ this happens by default
+
       end
   end
 
@@ -47,7 +48,7 @@ class PagesController < ApplicationController
     url = "https://www.omdbapi.com/?t=#{@title}&y=#{@year}&plot=short&r=json"
     movie = open(url).read
     movie_obj = JSON.parse(movie)
-
+    # raise
     imdb_title = movie_obj["Title"] #=> returns id as a string
     imdb_synopsis = movie_obj["Plot"]
     # imdb photo works without using api routes or paths
@@ -64,12 +65,12 @@ class PagesController < ApplicationController
     json_search = search.to_json
 
     parsed_tmdb  = JSON.parse(json_search)
-    #raise
+    # raise
     # @tmdb_title = @parsed_tmdb[0]['table']['results'][0]['table']['title']
     tmdb_id = parsed_tmdb[0]['table']['id']
-    tmdb_back_drop = "https://image.tmdb.org/t/p/original/#{parsed_tmdb[0]['table']['backdrop_path']}"
-
-    Movie.create(title: imdb_title, synopsis: imdb_synopsis, photo: imdb_photo, backdrop: tmdb_back_drop, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id)
+    tmdb_back_drop = "https://image.tmdb.org/t/p/original#{parsed_tmdb[0]['table']['backdrop_path']}"
+    # raise
+    Movie.create(title: imdb_title, synopsis: imdb_synopsis, photo: imdb_photo, backdrop: tmdb_back_drop, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre)
   end
 
 end
