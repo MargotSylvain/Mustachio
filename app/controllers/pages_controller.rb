@@ -12,29 +12,38 @@ class PagesController < ApplicationController
     @friends_array
   end
 
-
-
   def search
       @title = params[:movie][:title]
       @year = params[:movie][:year]
       @movie  = Movie.where(title: @title, year: @year.to_i)
+      if(@year.empty? && @title.empty?)
+        flash[:notice] = 'Please enter a Movie title!'
+        redirect_to collections_path and return
 
+      end
       if @movie.any?
         @movie
-        raise
-        flash[:notice] = 'Here is what we found'
-        redirect_to collections_path
+        # raise
+        # flash[:notice] = 'Here is what we found'
+        # redirect_to results_path (movie: @movie)
+        # ^ this requires a controller function
+        render :results
+        # ^ this takes the @movie and simply displays it on the results page
       else
             # Call api
         @movie = call_api
+          # raise
+        # flash[:notice] = 'Is this your movie?'
+        # redirect_to results_path (movie: @movie)
+        # ^ this requires a controller function
+        render :results
+        # ^ this takes the @movie and simply displays it on the results page
+
+
             # Parse params
             # Create object with all params
             # Store on database
             # Send the object to views
-        flash[:notice] = 'Is this your movie?'
-        redirect_to collections_path
-            # ^ this happens by default
-
       end
   end
 
@@ -72,7 +81,9 @@ class PagesController < ApplicationController
     tmdb_id = parsed_tmdb[0]['table']['id']
     tmdb_back_drop = "https://image.tmdb.org/t/p/original#{parsed_tmdb[0]['table']['backdrop_path']}"
     # raise
-    Movie.create(title: imdb_title, synopsis: imdb_synopsis, photo: imdb_photo, backdrop: tmdb_back_drop, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre)
+    upload_url = Cloudinary::Uploader.upload(tmdb_back_drop)
+    Movie.create(title: imdb_title, synopsis: imdb_synopsis, photo: imdb_photo, backdrop: upload_url["url"], trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre, backdrop_url: tmdb_back_drop, photo_url: imdb_photo)
+    raise
   end
 
 end
