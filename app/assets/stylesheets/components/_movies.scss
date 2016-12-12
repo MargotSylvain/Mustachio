@@ -1,47 +1,69 @@
-.movie-profiles-list-minimal{
+.movie-list-card{
+  // background-color: #383838;
+  // border: 1px solid #383838;
+  margin-top: 20px;
+  box-shadow: 10px 10px 33px -12px rgba(56,56,56,1);
+}
+
+.movie-list{
     list-style:none;
     text-align: left;
     margin: 0 auto;
+    margin-top: 20px;
     // max-width: 750px;
     padding: 0;
+    border-top: 5px red;
 }
 
-.movie-profiles-list-minimal li{
+.movie-list li{
     display: inline-block;
     box-sizing:border-box;
-
     text-align:left;
-    font:normal 16px sans-serif;
-    padding: 15px;
+    font:normal 14px sans-serif;
+    padding: 10px;
+
 
     // min-width:200px;
 }
 
-.movie-profiles-list-minimal .movie-avatar{
+// .movie-list .movie-avatar{
+//     float: left;
+//     padding-right: 10px;
+// }
+
+// .movie-list .movie-avatar img{
+//     border-radius: 0%;
+//     border:0;
+// }
+
+.movie-list .movie-name{
     float: left;
     padding-right: 10px;
-}
-
-.movie-profiles-list-minimal .movie-avatar img{
-    border-radius: 50%;
-    border:0;
-}
-
-.movie-profiles-list-minimal .movie-name{
     white-space: nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
-    margin: 5px 0 0;
+    // margin: 5px 0 0;
     // max-width: 160px;
 }
 
-.movie-profiles-list-minimal .movie-name a{
+.movie-list .movie-name a{
+  color:#383838;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.movie-list .movie-actions{
+  float: right;
+  padding-left: 10px;
+}
+
+.movie-list .movie-actions a{
     color:#383838;
     text-decoration: none;
     font-weight: bold;
 }
 
-.movie-profiles-list-minimal .movie-name span{
+.movie-list .movie-actions span{
     display: block;
     font-size: 11px;
     color: #85EBBC;

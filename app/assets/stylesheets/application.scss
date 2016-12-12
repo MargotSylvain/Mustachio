@@ -18,3 +18,26 @@
 //@import "plugin"; //name of plug in i.e datetimepicker
 
 
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+#header {
+  // background:#ededed;
+  // padding:10px;
+}
+#content {
+  padding-bottom:100px; /* Height of the footer element */
+}
+#footer {
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+}

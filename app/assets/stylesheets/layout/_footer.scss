@@ -1,7 +1,6 @@
 // Your footer style
-.footer {
+#footer {
   color: white;
-  font-size: 12px;
   padding: 10px 0px;
   margin: auto;
 }
@@ -25,12 +24,13 @@
   position: relative;
 }
 
-.footer a {
+#footer p {
   text-decoration: none;
   color: white;
+  font-size: 10px;
 }
 
-.footer a:hover {
+#footer p:hover {
   text-decoration: none;
   color: #eee;
 }

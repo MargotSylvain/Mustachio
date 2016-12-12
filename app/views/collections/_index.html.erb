@@ -1,0 +1,15 @@
+<div class="row", style="margin-top: 20px">
+  <% @collections.each do |collection| %>
+  <ul class ="movie-profiles-list-minimal">
+    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+      <div class="movie-name">
+        <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
+        <%= link_to film, collection_path(collection) %>
+      </div>
+      <div class="movie-actions">
+        <span><%= link_to 'Remove', collection_path(collection), method: :delete%> / <%= link_to 'Share'%> </span>
+      </div>
+    </div>
+  </ul>
+  <%end%>
+</div>
