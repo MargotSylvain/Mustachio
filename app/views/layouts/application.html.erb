@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mustachio</title>
-    <%= csrf_meta_tags %>
-    <!-- Add these line for detecting device width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Mustachio</title>
+  <%= csrf_meta_tags %>
+  <!-- Add these line for detecting device width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
-    <% unless (controller_name == "pages" && action_name == 'home') || (controller_name == "sessions") || (controller_name == "registrations")%>
-      <%= render 'shared/navbar' %>
-      <div class="nav-offset" style='margin-top:110px;'>
-        <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about')%>
-          <%= render 'shared/search_bar'  %></div>
-        <% end %>
+
+</head>
+
+<body>
+  <% unless (controller_name == "pages" && action_name == 'home') || (controller_name == "sessions") || (controller_name == "registrations")%>
+  <%= render 'shared/navbar' %>
+  <div class="nav-offset" style='margin-top:80px;'>
+    <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about' || action_name == 'friends')%>
+    <%= render 'shared/search_bar'  %></div>
     <% end %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
+    <% end %>
+    <%= render 'shared/flashes' %>
+    <%= yield %>
     <% unless controller_name == "pages" && action_name == 'home' || (controller_name == "sessions") || (controller_name == "registrations") %>
-      <%= render 'shared/footer' %>
+    <%= render 'shared/footer' %>
     <% end %>
   </body>
-</html>
+  </html>

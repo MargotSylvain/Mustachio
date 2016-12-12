@@ -1,55 +1,29 @@
-<h4>Current user:</h4> <%=current_user.username%>
-<h4>User list</h4>
-<div id="users">
-  <%@users.each do |user| %>
-  <%unless user == current_user%>
-  <div class="user">
-    <p>
-      <strong><%=user.username %></strong>
-      <%=link_to "Add Friend", friendships_path(friend_id: user, user_id: current_user), method: :post %>
-      <div class="clear"></div>
-    </p>
-  </div>
-  <% end %>
-  <% end %>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <%= render 'friendships/show'  %>
+</div>
+<div class="row">
+   <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+     <%= render 'friendships/index'  %>
+   </div>
 </div>
 
-<h4>My friends</h4>
-<ul>
-  <% current_user.friends.each do |friend|%>
-      <li>
-        <%=friend.username%>
-      </li>
+<div class="row">
+   <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+     <%= render 'friendships/pending'%>
+   </div>
+</div>
 
-  <%end%>
+<div class="row">
+   <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+     <%= render 'friendships/sent'%>
+   </div>
+</div>
 
-  <%# current_user.friendships.each do |friendship| %>
-    <%#= p friendship %>
-    <%#= friendship.user_id %>
-    <%#= friendship.friend_id %>
-    <%#= link_to "Unfriend", friendship_path(friendship), method: :delete %>
-  <%# end %>
-</ul>
+<div class="row">
+   <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+     <%= render 'users/index'%>
+   </div>
+</div>
 
-<h4>Friends requests - received friendships</h4>
-<ul>
-    <% current_user.received_friendships.each do |request| %>
-    <%unless request.accepted == true%>
-    <li>
-      <%= request.user.username%>
-      <%= link_to "Accept",  friendship_path(id: request.id), method: "put" %>
-      <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
-    </li>
-    <% end %>
-  <% end %>
-</ul>
-
-<h4>Requests sent - pending friends</h4>
-<ul>
-  <% current_user.pending_friends.each do |friendship| %>
-    <li>
-      <%= friendship.username%>
-    </li>
-    <% end %>
-</ul>
 
