@@ -18,7 +18,7 @@
    <!-- Notification link-->
    <a href="" class="navbar-mustachio-item navbar-mustachio-link">
     <div class="badge-container">
-      <i class="fa fa-envelope-o"></i>
+      <i class="fa fa-envelope-o" style='color: white'></i>
       <div class="badge badge-grey">3</div>
     </div>
   </a>
@@ -29,7 +29,7 @@
       <% avatar_url = current_user.facebook_picture_url || current_user.photo || "http://placehold.it/30x30" %>
      <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
      <ul class="dropdown-menu dropdown-menu-right navbar-mustachio-dropdown-menu">
-      <li><a href="#">Profile</a></li>
+      <li><%= link_to 'Profile', edit_user_registration_path%></li>
       <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></li>
     </ul>
   </div>

@@ -29,6 +29,10 @@ class FriendshipsController < ApplicationController
     redirect_to friends_url
   end
 
+  def show
+    @friendship = Friendship.find(params[:id])
+  end
+
 
 
 end

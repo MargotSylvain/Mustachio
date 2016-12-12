@@ -12,7 +12,6 @@ class PagesController < ApplicationController
     @friends_array
   end
 
-
   def search
       @title = params[:movie][:title]
       @year = params[:movie][:year]
