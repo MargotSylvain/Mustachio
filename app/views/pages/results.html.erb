@@ -2,12 +2,20 @@
 
 <div class="banner-results position-rel" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 50%), url(<%= @movie.backdrop_url %>);">
   <div class="results-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1><%= @movie.title %></h1>
-          <h3><%= @movie.year %></h3>
-        </div><!--end of xs-12-->
+
+    <div class="results-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1><%= @movie.title %></h1>
+            <h3><%= @movie.year %></h3>
+          </div><!--end of xs-12-->
+        </div><!-- of row-->
+      </div><!--end of container-->
+    </div>
+
+    <div class="results-container results-bottom">
+      <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-4">
             <%= image_tag @movie.photo_url, class: "banner-poster" %>
@@ -17,9 +25,10 @@
             <p><%= @movie.genre %></p>
             <%= button_to "add to collection", collections_path(@movie), class: "btn btn-primary", method: :post %>
           </div>
-        </div><!--end of second row-->
-      </div><!--end of row-->
-    </div><!--end of contianer-->
+        </div><!--end of row-->
+      </div><!--end of container-->
+    </div>
+
   </div><!--end of results-wrapper-->
 </div><!-- end of img background-->
 

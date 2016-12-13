@@ -2,7 +2,8 @@
 .banner-results{
   color: white;
   // text-align: center;
-  height: 100vh;
+  height: 900px;
+
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   // display: flex;
@@ -13,6 +14,9 @@
 }
 .results-wrapper{
   bottom: 0px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 }
 .banner h1,h3 {
   font-weight: bold;
@@ -39,4 +43,8 @@
   width: auto;
   height: auto;
  // margin-top: 50px; works but must be a better way
+}
+.results-bottom{
+  // align-self: flex-end;
+  margin-top: 30%;
 }
