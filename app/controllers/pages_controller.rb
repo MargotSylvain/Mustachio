@@ -18,13 +18,13 @@ class PagesController < ApplicationController
       @movie  = Movie.where("title ILIKE ?", "%#{@title}%").find_by({year: [(@year-1)..(@year+1)] })
 
       if(params[:movie][:year].empty? && @title.empty?)
-        flash[:notice] = 'Please enter a Movie title!'
+        # flash[:notice] = 'Please enter a Movie title!'
         redirect_to collections_path and return
       end
       if @movie
         @movie
         # raise
-         flash[:notice] = 'Here is what we found'
+         # flash[:notice] = 'Here is what we found'
         # redirect_to results_path (movie: @movie)
         # ^ this requires a controller function
         render :results
