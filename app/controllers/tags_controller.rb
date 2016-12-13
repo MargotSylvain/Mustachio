@@ -9,6 +9,7 @@ class TagsController < ApplicationController
 
   def new
     @tag = Tag.new
+    @collections = current_user.collections
   end
 
   def create
@@ -29,6 +30,7 @@ class TagsController < ApplicationController
     @tag.destroy
     redirect_to tags_path
   end
+
 
    private
   def set_tag

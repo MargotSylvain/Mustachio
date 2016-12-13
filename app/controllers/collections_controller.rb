@@ -6,6 +6,7 @@ class CollectionsController < ApplicationController
 
   def show
     @review = Review.new
+    @tag_collection = Tag_collection.new
   end
 
   def new

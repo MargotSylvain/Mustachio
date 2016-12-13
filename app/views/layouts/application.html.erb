@@ -23,7 +23,7 @@
 
     <div id="content">
       <div class="nav-offset" style='margin-top:80px;'>
-        <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about' || action_name == 'friends')%>
+        <% unless controller_name == "pages" && (action_name == 'home' || action_name == 'about' || action_name == 'friends') || controller_name == "tags"%>
         <%= render 'shared/search_bar'  %></div>
         <% end %>
         <% end %>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="container">
+    <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  ">
+      <h5>My movies</h5>
+      <div class="movie-list-card">
+        <% @collections.each do |collection| %>
+          <%= cl_image_tag collection.movie.photo_url, height: 100, crop: :fill %>
+          <%= link_to 'add', collection_tag_collections_path(collection), method: :create%></br>
+        <%end%>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
