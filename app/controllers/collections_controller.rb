@@ -6,7 +6,6 @@ class CollectionsController < ApplicationController
 
   def show
     @review = Review.new
-    @tag_collection = Tag_collection.new
   end
 
   def new
@@ -15,7 +14,7 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = Collection.new(collection_params)
-    @tag.user = current_user
+    @collection.user = current_user
     @collection.save
     redirect_to collections_path(@collection)
   end
@@ -41,6 +40,6 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
   end
   def collection_params
-    params.require(:collection).permit(:id, :user_id, :movie_id, :media)
+    params.require(:collection).permit(:movie_id, :media)
   end
 end
