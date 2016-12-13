@@ -14,7 +14,7 @@
         <div class="col-xs-12 col-sm-8">
           <p><%= @movie.synopsis%></p>
           <p><%= @movie.genre %></p>
-          <a class="btn btn-primary btn-lg">Add to Collection!</a>
+          <%= button_to "add to collection", collections_path(@movie), class: "btn btn-primary", method: :post %>
         </div>
       </div><!--end of second row-->
     </div><!--end of row-->
