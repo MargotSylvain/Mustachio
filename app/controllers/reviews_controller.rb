@@ -16,10 +16,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = current_user.reviews.build(review_params)
-    @review.collection = @collection
-    # raise
-    # @review.save
+    # @review = current_user.reviews.build(review_params)
+    # @review.collection = @collection
+    # ^ Collections is carrying the current_user_id
+    # ^^ this app only allows one person to write the review for the collection
+    # ^^^ delete User_id from reviews to avoid db denormalization(repeat info in the db)
+    @review = @collection.reviews.build(review_params)
+     # raise
+     @review.save
 
     if @review.save
       flash[:notice] = 'your review has been published'
