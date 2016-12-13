@@ -5,7 +5,7 @@ class TagCollection < ApplicationRecord
 
   has_many :movies, through: :collections
 
-  # validates :tag_id, :collection_id, presence: true
-  validates :collection_id, presence: true
+  validates :tag_id, :collection_id, presence: true
+
   # ^ not sure this is needed if referenced
 end

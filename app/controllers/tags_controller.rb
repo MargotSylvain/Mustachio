@@ -13,8 +13,14 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.new(tag_params)
+    @tag = Tag.new(name: tag_params[:name])
     @tag.save
+    movies_id = tag_params[:movie_ids].drop(1)
+    collections = current_user.collections.where(movie_id: movies_id)
+    collections.each do |collection|
+      TagCollection.create!(collection_id: collection.id, tag_id: @tag.id)
+    end
+
     redirect_to tags_path(@tag)
   end
 
@@ -37,6 +43,6 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
   end
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, movie_ids:[])
   end
 end

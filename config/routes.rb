@@ -9,7 +9,7 @@ root to: 'pages#home'
     #   resources :tags
     # end
     resources :collections do
-      resources :tag_collections
+
       resources :reviews
 
     end

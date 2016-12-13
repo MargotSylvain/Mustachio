@@ -5,7 +5,10 @@
       <div class="movie-list-card">
         <% @collections.each do |collection| %>
           <%= cl_image_tag collection.movie.photo_url, height: 100, crop: :fill %>
-          <%= link_to 'add', collection_tag_collections_path(collection), method: :create%></br>
+          <%= label_tag collection.id do %>
+            <%= check_box_tag collection.id%>
+           <%= collection.movie %>
+          <%end%>
         <%end%>
       </div>
 
