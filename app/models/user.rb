@@ -8,14 +8,14 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-         has_many :tags, through: :collections, dependent: :destroy
-         has_many :tag_collections, through: :collections
-         has_many :collections, dependent: :destroy
-         has_many :movies, through: :collections
-         has_many :reviews, through: :collections
+    has_many :tags, through: :collections, dependent: :destroy
+    has_many :tag_collections, through: :collections
+    has_many :collections, dependent: :destroy
+    has_many :movies, through: :collections
+    has_many :reviews, through: :collections
 
-         validates :username, :email, presence: true
-         validates :username, uniqueness: {scope: :email}
+    validates :username, :email, presence: true
+    validates :username, uniqueness: {scope: :email}
 
   # Add friendship to user
   has_many :friendships, dependent: :destroy
