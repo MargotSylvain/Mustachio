@@ -7,16 +7,19 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center", style='color: white'>
-      <h4>Enjoy your me time</h4>
-    </div>
+    <div class="col-xs-12 text-center" style='margin-top: 20px;'>
+    <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-signin' %><br />
+    <% end -%>
+    <% end -%>
   </div>
 
-<!--  <div class="wrapper-green"> -->
+<!--   <div class="wrapper-green"> -->
     <div class="row">
       <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4", style='color: #383838'>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html=> { class: 'session-form' }) do |f| %>
-          <div class="form-inputs signup-card">
+          <div class="form-inputs">
             <%= f.input_field :username, required: false, autofocus: true, label: false, placeholder: "username", class: 'session-input'%>
             <%= f.input_field :email, required: true, autofocus: true, label: false, placeholder: "email address", class: 'session-input' %>
             <%= f.input_field :password, required: true , label: false, placeholder: "password", class: 'session-input'%>
@@ -29,29 +32,28 @@
           </div>
         <% end %>
       </div>
-      <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4 col-sm-offset-0", style='color: white'>
-        <h5 class=' text-center'>Collection</h5>
-        <p>Create your collection of movies</p>
-        <p>Customize your collection with lists, tags, ratings and movie review</p>
-        <h5 class=' text-center'>Friends</h5>
-        <p>Explore your friends's collections</p>
-        <p>Share your lists with your love ones</p>
-        <h5 class=' text-center'>Must</h5>
-        <p>See what you MUST see!!</p>
-        <p>No more time wasted choosing what to watch</p>
+      <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4 col-sm-offset-0 about">
+        <div class="form-about">
+          <h4 class='about-title text-center'>Enjoy your me time</h4>
+          <h5 class='text-center'>Collection</h5>
+          <ul>
+            <li>Create your collection of movies</li>
+            <li>Customize your collection with lists, tags, ratings and movie review</li>
+          </ul>
+          <h5 class='text-center'>Friends</h5>
+          <ul>
+            <li>Explore your friends's collections</li>
+            <li>Share your lists with your love ones</li>
+          </ul>
+           <h5 class='text-center'>Must</h5>
+          <ul>
+            <li>See what you MUST see!!</li>
+            <li>No more time wasted choosing what to watch</li>
+          </ul>
+        </div>
       </div>
-  <!--   </div> -->
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center fb-signin">
-      <%- if devise_mapping.omniauthable? %>
-      <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= link_to "sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-      <% end -%>
-      <% end -%>
     </div>
-  </div>
+<!--   </div> -->
 
 </div>
 
