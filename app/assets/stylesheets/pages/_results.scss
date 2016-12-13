@@ -2,7 +2,7 @@
 .banner-results{
   color: white;
   // text-align: center;
-  height: 900px;
+  height: 100vh;
 
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
@@ -18,15 +18,15 @@
   // flex-direction: column;
   // justify-content: space-between;
 }
-.banner h1,h3 {
+.banner-rusults h1,h3 {
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
   // position: absolute;
 }
-.banner h1{
+.banner-results h1{
   font-size: 50px;
 }
-.banner p {
+.banner-results p {
   font-size: 18px;
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.7);
@@ -44,7 +44,15 @@
   height: auto;
  // margin-top: 50px; works but must be a better way
 }
+.add-to-col{
+  // text-align: center;
+  margin: 0px auto;
+}
 .results-bottom{
   // align-self: flex-end;
-  margin-top: 30%;
+  margin-top: 12%;
+}
+.results-content-bg{
+  background: rgba(0,0,0,0.8);
+
 }
