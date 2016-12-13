@@ -8,7 +8,8 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-         has_many :tags, through: :collections
+         has_many :tags, through: :collections, dependent: :destroy
+         has_many :tag_collections, through: :collections
          has_many :collections, dependent: :destroy
          has_many :movies, through: :collections
          has_many :reviews, through: :collections
@@ -41,7 +42,7 @@ class User < ApplicationRecord
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:username] = auth.extra.raw_info.name
-    user_params[:facebook_picture_url] = auth.info.image
+    user_params[:photo] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
 

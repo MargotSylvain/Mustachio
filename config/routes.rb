@@ -9,9 +9,12 @@ root to: 'pages#home'
     #   resources :tags
     # end
     resources :collections do
+      resources :tag_collections
       resources :reviews
+
     end
     resources :tags
+
     resources :movies, only: [:show]
     resources :friendships
     #post "search", to: "pages#search"

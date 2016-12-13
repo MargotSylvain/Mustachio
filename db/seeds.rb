@@ -20,7 +20,8 @@ user_1 = User.create(
   last_name: "Doe",
   username: "Jane Doe 44",
   email: "jane@gmail.com",
-  password: "password"
+  password: "password",
+  remote_photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629520/Logomakr_6N0U9j_bzp9nx.png'
 )
 
 user_2 = User.create(
@@ -28,25 +29,21 @@ user_2 = User.create(
   last_name: "Doe",
   username: "John Doe",
   email: "john@gmail.com",
-  password: "password"
+  password: "password",
+  remote_photo_url: "http://res.cloudinary.com/margot-sylvain/image/upload/v1481629516/Logomakr_8DKl3e_jivaci.png"
 )
 
-# user_3 = User.create(
-#   first_name: "Margot",
-#   last_name: "Sylvain",
-#   username: "Margot",
-#   email: "margot.sylvain@gmail.com",
-#   password: "password"
-# )
 
 movie_1 = Movie.create(
   title: "Inception",
-  year: 2016
+  year: 2016,
+  photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629173/inception_mldatf.jpg'
   )
 
 movie_3 = Movie.create(
   title: "Rushmore",
-  year: 2016
+  year: 2016,
+  photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629175/rushmore_cppxpd.jpg',
   )
 
 collection_1 = Collection.create(
@@ -74,17 +71,4 @@ tag_collections_1 = TagCollection.create(
 tag_collections_2 = TagCollection.create(
     tag: tag_2,
     collection: collection_1
-  )
-
-
-
-
-movie_2 = Movie.create(
-  title: "test_movie_2",
-  year: 2017
-  )
-
-collection_2 = Collection.create(
-  movie: movie_2,
-  user: user_2
   )
