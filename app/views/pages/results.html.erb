@@ -1,25 +1,23 @@
 <!-- <style type="text/css"> *{ border: 1px solid red !important;} </style> -->
 
-<div class="banner position-rel" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= @movie.backdrop_url %>);">
-<div class="container">
-<div class="row">
-  <div class="col-xs-12">
-    <h1><%= @movie.title %></h1>
-    <h2><%= @movie.year %></h2>
-   </div><!--end of xs-12, sm-4-->
-   <div class="row">
-   <div class="col-xs-12 col-sm-4">
-   <%= image_tag @movie.photo_url, class: "banner-poster" %>
-   </div>
-   <div class="col-xs-12 col-sm-8">
-    <p><%= @movie.synopsis%></p>
-    <p><%= @movie.genre %></p>
-    <a class="btn btn-primary btn-lg">GET IT</a>
-    </div>
-  </div><!--end of second row-->
-  </div><!--end of xs-12 col-sm-8-->
-  </div><!--end of row-->
+<div class="banner position-rel" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 50%), url(<%= @movie.backdrop_url %>);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1><%= @movie.title %></h1>
+        <h3><%= @movie.year %></h3>
+      </div><!--end of xs-12-->
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <%= image_tag @movie.photo_url, class: "banner-poster" %>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <p><%= @movie.synopsis%></p>
+          <p><%= @movie.genre %></p>
+          <a class="btn btn-primary btn-lg">Add to Collection!</a>
+        </div>
+      </div><!--end of second row-->
+    </div><!--end of row-->
   </div><!--end of contianer-->
-</div><!-- end of background-->
-
+</div><!-- end of img background-->
 
