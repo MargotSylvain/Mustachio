@@ -1,14 +1,14 @@
 // Your footer style
 #footer {
   color: white;
-  padding: 10px 0px;
+  // padding: 10px 0px; This was outside the footer-wrapper
   margin: auto;
 }
 
 .footer-wrapper {
   background-color: #383838;
-  margin: 50px 0 0 0;
-  position: relative;
+  // margin: 50px 0 0 0; DONT NEED THIS!
+  // position: relative; DONT NEED THIS!
   bottom: 0px;
   left: 0px;
   right: 0px;

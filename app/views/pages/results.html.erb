@@ -12,7 +12,7 @@
           </div><!--end of xs-12-->
         </div><!-- of row-->
       </div><!--end of container-->
-    </div>
+    </div><!--end results contianer-->
 
     <div class="results-container results-bottom">
       <div class="container">
@@ -20,14 +20,17 @@
           <div class="col-xs-12 col-sm-4">
             <%= image_tag @movie.photo_url, class: "banner-poster" %>
           </div>
-          <div class="col-xs-12 col-sm-8">
+
+
+          <div class="col-xs-12 col-sm-8 results-content-bg">
             <p><%= @movie.synopsis%></p>
             <p><%= @movie.genre %></p>
-            <%= button_to "add to collection", collections_path(@movie), class: "btn btn-primary", method: :post %>
-          </div>
-        </div><!--end of row-->
+            <%= button_to "add to collection", collections_path(@movie), class: "btn btn-primary add-to-col", method: :post %>
+          </div><!--end of col-sm-8-->
+
+        </div><!--end of second row-->
       </div><!--end of container-->
-    </div>
+    </div><!--end results container-->
 
   </div><!--end of results-wrapper-->
 </div><!-- end of img background-->
