@@ -61,8 +61,8 @@ namespace :djKhaled do
           hit_list.delete_at(0)
         end
 
-        private
 
+        private
 
     def call_api_rake
 
