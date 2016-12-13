@@ -13,6 +13,7 @@ class PagesController < ApplicationController
   end
 
   def search
+      @collection = Collection.new
       @title = params[:movie][:title]
       @year = params[:movie][:year].to_i
       @movie  = Movie.where("title ILIKE ?", "%#{@title}%").find_by({year: [(@year-1)..(@year+1)] })
@@ -36,6 +37,7 @@ class PagesController < ApplicationController
          flash[:notice] = 'Is this your movie?'
         # redirect_to results_path (movie: @movie)
         # ^ this requires a controller function
+
         render :results
         # ^ this takes the @movie and simply displays it on the results page
 
