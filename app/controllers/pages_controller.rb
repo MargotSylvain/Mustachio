@@ -13,8 +13,10 @@ class PagesController < ApplicationController
   def search
       @collection = Collection.new
       @title = params[:movie][:title]
-      @year = params[:movie][:year].to_i
-      @movie  = Movie.where("title ILIKE ?", "%#{@title}%").find_by({year: [(@year-1)..(@year+1)] })
+      @year = params[:movie][:year]
+      # @movie  = Movie.where("title ILIKE ?", "%#{@title}%").find_by({year: [(@year-1)..(@year+1)] })
+      # ^^modify year, without an integer
+      @movie  = Movie.find_by("title ILIKE ?", "%#{@title}%")
 
       if(params[:movie][:year].empty? && @title.empty?)
         # flash[:notice] = 'Please enter a Movie title!'
@@ -69,19 +71,16 @@ class PagesController < ApplicationController
     imdb_id = movie_obj["imdbID"] #=> returns id as a string
     imdb_genre = movie_obj["Genre"]
     # raise
-
     # find backdrops in tmd:
+
     search = Tmdb::Find.movie(imdb_id, external_source: 'imdb_id')
-
     json_search = search.to_json
-
     parsed_tmdb  = JSON.parse(json_search)
     # raise
     # @tmdb_title = @parsed_tmdb[0]['table']['results'][0]['table']['title']
     tmdb_id = parsed_tmdb[0]['table']['id']
     tmdb_back_drop = "https://image.tmdb.org/t/p/original#{parsed_tmdb[0]['table']['backdrop_path']}"
     # raise
-
     Movie.create(title: imdb_title, synopsis: imdb_synopsis, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre, backdrop_url: tmdb_back_drop, photo_url: imdb_photo)
 
   end
