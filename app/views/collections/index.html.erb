@@ -1,15 +1,49 @@
-
+<!-- <style type="text/css"> *{ border: 1px solid red !important;} </style> -->
 <%= render 'collections/menus'%>
-<div class="row">
-  <div class="container">
+
+<div class="container">
+  <div class="row">
+    <% @collections.each do |collection| %>
+
+      <div class="col-xs-6">
+      <div class="collection-bord">
+        <div class="row">
+          <div class="col-xs-5">
+            <%= image_tag(collection.movie.photo_url, class: "banner-poster") %>
+          </div>
+            <div class="col-xs-7">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4><%= collection.movie.title %></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+              <%= collection.reviews.first.phrase  if collection.reviews.first %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+              <%= collection.reviews.first.my_rating  if collection.reviews.first %>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div><!--end of col-6-->
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
     <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  movie-list-card ">
     <% if @collections.size == 0 %>
     <p>Add movies to your collection!</p>
     <% else%>
       <% @collections.each do |collection| %>
       <ul class ="movie-list">
-
-
           <li>
             <div class="movie-name">
               <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
