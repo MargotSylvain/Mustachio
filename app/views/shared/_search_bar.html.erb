@@ -1,4 +1,4 @@
-<!--binding to object 2.2-->
+ <!--binding to object 2.2-->
 <div class="container">
   <div class="row ">
 
@@ -8,8 +8,10 @@
       <div class='searchbar-mustachio'>
         <%= f.input_field :title, as: :string, placeholder: 'input title', class:'searchbar-mustachio-input'  %>
         <%= f.input_field :year, as: :integer, placeholder: 'input year' , class:'searchbar-mustachio-input'%>
-        <%= image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
+
+      <%= image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
       </div>
+
       <% end %>
     </div>
   </div>
