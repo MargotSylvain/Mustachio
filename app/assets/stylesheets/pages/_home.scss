@@ -9,6 +9,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #sign-out a{

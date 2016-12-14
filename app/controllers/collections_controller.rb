@@ -1,7 +1,11 @@
 class CollectionsController < ApplicationController
     before_action :set_collection, only: [:show,:mycollection]
   def index
-    @collections = current_user.collections
+    if params[:tag_id]
+      @collections = Tag.find(params[:tag_id]).collections
+    else
+      @collections = current_user.collections
+    end
   end
 
   def show

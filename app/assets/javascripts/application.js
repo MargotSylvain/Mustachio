@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require bootstrap-sprockets
 //= require plugin
+//= require chosen-jquery
 //= require_tree .
 
 $(".tab").on("click", function(event) {
