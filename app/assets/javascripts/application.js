@@ -16,3 +16,9 @@
 //= require bootstrap-sprockets
 //= require plugin
 //= require_tree .
+
+$(".tab").on("click", function(event) {
+  console.log("clicking")
+  $(".tab.active").removeClass("active");
+  $(this).addClass("active");
+});

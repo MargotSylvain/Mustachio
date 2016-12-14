@@ -6,12 +6,31 @@
   border-radius: 50px;
   margin-bottom: 10px;
   margin-top: 10px;
-  color: #383838;
+  color: white;
 }
 
 
 .btn:hover {
   text-decoration: none;
+  color: #85EBBC;
+  background: white;
+}
+
+
+.btn-fb{
+  background: #3B539A;
+  border: 3px solid #3B539A;
+  padding: 10px 25px ;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   color: white;
 }
+
+
+.btn-fb:hover {
+  text-decoration: none;
+  color: white;
+}
+
 

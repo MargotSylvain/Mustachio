@@ -22,5 +22,6 @@ root to: 'pages#home'
     get "about", to: "pages#about"
     get "results", to: "pages#results"
     get "search", to: "pages#search"
+    get "pending", to: "friendships#pending"
 
 end

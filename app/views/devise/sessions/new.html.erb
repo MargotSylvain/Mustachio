@@ -1,4 +1,4 @@
-<div id="sign-in">
+<div id="sign-in" style='background-image: url("<%= image_path 'bg-landing2.jpg' %>"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);'>
 
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center sign-in-title">
@@ -9,7 +9,7 @@
   <div class="col-xs-12 text-center" style='margin-top: 20px;'>
     <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-signin' %><br />
+    <%= link_to "sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn-fb btn-signin' %><br />
     <% end -%>
     <% end -%>
   </div>
