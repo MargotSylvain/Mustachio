@@ -22,9 +22,54 @@
           </div>
 
 
-          <div class="col-xs-12 col-sm-8 results-content-bg">
-            <p><%= @movie.synopsis%></p>
-            <p><%= @movie.genre %></p>
+          <div class="col-xs-12 col-sm-8 results-content-bg"><!--creates nested boot-->
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12 center">
+               <strong>Plot:</strong>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <%= @movie.synopsis %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12 center">
+               <strong>Directors:</strong>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+               <%= @movie.director%>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12 center">
+               <strong>Actors:</strong>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <%= @movie.actor %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12 center">
+               <strong>Genre: </strong>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <%= @movie.genre %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12 center">
+               <strong>Rated: </strong>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <%= @movie.rated %>
+            </div>
+          </div>
 
             <%= simple_form_for @collection do |f|%>
             <%= f.hidden_field :movie_id, :value => @movie.id %>
