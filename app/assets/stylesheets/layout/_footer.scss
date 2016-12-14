@@ -14,14 +14,18 @@
   right: 0px;
 }
 
+.footer-box{
+  display: flex;
+}
+
 .footer-left {
-  text-align: left;
-  position: absolute;
+  justify-content: flex-start;
 }
 
 .footer-right {
   text-align: right;
-  position: relative;
+  justify-content: flex-end;
+  float: right;
 }
 
 #footer p {
