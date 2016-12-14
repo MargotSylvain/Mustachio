@@ -37,7 +37,7 @@
     // max-width: 160px;
 }
 
-.friend-profiles-list-minimal .friend-name a{
+.friend-profiles-list-minimal .friend-name a, p{
   color:#383838;
   text-decoration: none;
   // font-weight: bold;
@@ -68,7 +68,7 @@
 .friend-name {
   flex: 0 1 40vw;
   font-weight: lighter;
-  color: #85EBBC;
+  // color: #85EBBC;
   border: none;
   font-size: 24px;
   // border-bottom: 1px solid #85EBBC;
