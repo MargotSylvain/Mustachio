@@ -31,7 +31,6 @@
       <p class="no-movie">No movies yet in your collection!</p>
     <% else %>
       <% @collections.each do |collection| %>
-
         <% movie_url = collection.movie.photo_url %>
         <%= image_tag movie_url , class: "logo-movie"%>
         <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
@@ -40,7 +39,6 @@
           <%= collection.reviews.first.phrase%>
         <% end %>
         <%= link_to 'Remove', collection_path(collection), method: :delete%>
-
       <%end%>
     <% end %>
   </div>
