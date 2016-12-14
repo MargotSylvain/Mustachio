@@ -23,5 +23,5 @@ root to: 'pages#home'
     get "results", to: "pages#results"
     get "search", to: "pages#search"
     get "pending", to: "friendships#pending"
-
+    get "sent", to: "friendships#sent"
 end
