@@ -12,13 +12,14 @@ class PagesController < ApplicationController
 
   def search
       @collection = Collection.new
-      @title = params[:movie][:title]
+      @id = params[:movie][:id]
       @year = params[:movie][:year]
       # @movie  = Movie.where("title ILIKE ?", "%#{@title}%").find_by({year: [(@year-1)..(@year+1)] })
       # ^^modify year, without an integer
-      @movie  = Movie.find_by("title ILIKE ?", "%#{@title}%")
+      # @movie  = Movie.find_by("title ILIKE ?", "%#{@title}%")
+      @movie  = Movie.find(@id)
 
-      if(params[:movie][:year].empty? && @title.empty?)
+      if(params[:movie][:year].empty? && @id.nil?)
         # flash[:notice] = 'Please enter a Movie title!'
         redirect_to collections_path and return
       end

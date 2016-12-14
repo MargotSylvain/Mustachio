@@ -1,31 +1,55 @@
+<div class="search-section text-center" style='padding-top:80px;'>
+  <!-- search -->
+  <h2>Add a movie</h2>
+  <%= simple_form_for :movie, method: :get, url: search_path do |f|%>
+  <%= f.input :id, collection: Movie.all, input_html: {class: 'chosen-select form-control'}, prompt: 'which title?', label: false  %>
+  <%= f.input :year, collection: (1990..2016).to_a, input_html: {class: 'chosen-select form-control'}, prompt: 'which year?', label: false  %>
+  <% image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
+  <%= f.submit "search movie", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-<%= render 'collections/menus'%>
-<div class="row">
-  <div class="container">
-    <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  movie-list-card ">
+
+<div class="container movies-container">
+
+  <div class="list-navs">
+    <%= link_to collections_path, class: "list-nav #{params[:tag_id] ? '' : 'active'}" do %>
+      All <span class="movie-counter"><%= current_user.collections.count %></span>
+    <% end %>
+    <% current_user.tags.distinct.take(3).each do |tag| %>
+      <%= link_to collections_path(tag_id: tag.id), class: "list-nav #{(params[:tag_id].to_i == tag.id )  ? 'active' : ''  }" do %>
+        <%= tag.name  %> <span class="movie-counter"><%=  tag.collections.count %></span>
+      <% end %>
+    <% end %>
+    <%= link_to new_tag_path, class: "list-nav list-btn" do %>
+      Add list <i class="fa fa-plus"></i>
+    <% end %>
+  </div>
+
+  <div class="movies">
     <% if @collections.size == 0 %>
-    <p>Add movies to your collection!</p>
-    <% else%>
+      <p class="no-movie">No movies yet in your collection!</p>
+    <% else %>
       <% @collections.each do |collection| %>
-      <ul class ="movie-list">
 
+        <% movie_url = collection.movie.photo_url %>
+        <%= image_tag movie_url , class: "logo-movie"%>
+        <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
+        <%= link_to film, collection_path(collection) %>
+        <% unless collection.reviews.count == 0 %>
+          <%= collection.reviews.first.phrase%>
+        <% end %>
+        <%= link_to 'Remove', collection_path(collection), method: :delete%>
 
-          <li>
-            <div class="movie-name">
-              <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
-              <%= link_to film, collection_path(collection) %>
-            </div>
-            <div class="movie-actions">
-              <span><%= link_to 'Remove', collection_path(collection), method: :delete%> / <%= link_to 'Share'%> </span>
-            </div>
-          </li>
-        <%end%>
-      </ul>
       <%end%>
-    </div>
+    <% end %>
   </div>
 
 </div>
+
+
+
+<% render 'collections/menus'%>
 
 <!-- <div class="movie-list-card">
 

@@ -3,20 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :photo, UserPhotoUploader
 
-
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
 
+  has_many :tags, through: :collections, dependent: :destroy
+  has_many :tag_collections, through: :collections
+  has_many :collections, dependent: :destroy
+  has_many :movies, through: :collections
+  has_many :reviews, through: :collections
 
-    has_many :tags, through: :collections, dependent: :destroy
-    has_many :tag_collections, through: :collections
-    has_many :collections, dependent: :destroy
-    has_many :movies, through: :collections
-    has_many :reviews, through: :collections
-
-    validates :username, :email, presence: true
-    validates :username, uniqueness: {scope: :email}
+  validates :username, :email, presence: true
+  validates :username, uniqueness: {scope: :email}
 
 
   # Add friendship to user
@@ -33,6 +31,7 @@ class User < ApplicationRecord
 def friends
   active_friends | received_friends
 end
+
 
 # to call your pending sent or received
 

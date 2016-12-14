@@ -4,14 +4,6 @@
     <%= image_tag 'mustachio-logo.png'%>
   </a>
 
-  <!-- search -->
-  <%= simple_form_for :movie, method: :get, url: search_path do |f|%>
-  <%= f.input_field :title, as: :string, placeholder: 'input title', class:'navbar-wagon-search-input'  %>
-  <%= f.input_field :year, as: :integer, placeholder: 'input year' , class:'navbar-wagon-search-input'%>
-  <%= image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
-  <% end %>
-
-
   <!-- Right Navigation -->
   <div class="navbar-mustachio-right hidden-xs hidden-sm">
 
