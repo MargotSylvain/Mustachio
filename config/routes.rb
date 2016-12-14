@@ -18,7 +18,7 @@ root to: 'pages#home'
     resources :movies, only: [:show]
     resources :friendships
     #post "search", to: "pages#search"
-    get "friends", to: "pages#friends"
+    # get "friends", to: "pages#friends"
     get "about", to: "pages#about"
     get "results", to: "pages#results"
     get "search", to: "pages#search"

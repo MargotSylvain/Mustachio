@@ -1,26 +1,23 @@
-<div id="users">
-  <%@users.each do |user| %>
-    <%unless user == current_user%>
-      <div class="user">
-        <ul class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-2 user-profiles-list-minimal">
-        <li>
-          <div class="user-avatar">
-            <% avatar_url = user.facebook_picture_url || user.photo %>
-            <%= image_tag avatar_url , class: "avatar-large"%>
-          </div>
-          <p class="user-name">
-            <%=user.username %>
-            <span>
-              <%=pluralize(user.collections.size, 'Movie')%>
-              <%=pluralize(user.tags.size, 'Tag')%>
-            </span>
-            <span>
-              <%=link_to "Add User", friendships_path(friend_id: user, user_id: current_user), method: :post %>
-            </span>
-          </p>
-        </li>
-        </ul>
-      </div>
-    <%end%>
-  <% end %>
-</div>
+
+<%@users.each do |user| %>
+<%unless user == current_user%>
+<ul class ="user-profiles-list-minimal">
+  <li>
+    <div class="user-avatar">
+      <% avatar_url = user.facebook_picture_url || user.photo %>
+      <%= image_tag avatar_url , class: "avatar-large"%>
+    </div>
+    <p class="user-name">
+      <%=user.username %>
+      <span>
+        <%=pluralize(user.collections.size, 'Movie')%>
+        <%=pluralize(user.tags.size, 'Tag')%>
+
+        <%=link_to image_tag("add-friend-logo.png", border: 0), friendships_path(friend_id: user, user_id: current_user), method: :post, class: 'image-responsive add-friend-logo' %>
+      </span>
+    </p>
+  </li>
+  <%end%>
+  <%end%>
+</ul>
+
