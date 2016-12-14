@@ -30,6 +30,7 @@ class FriendshipsController < ApplicationController
   end
 
   def show
+    @tab = params[:tab] || 'tags'
     @friend = User.find(params[:id])
   end
 

@@ -30,6 +30,8 @@
 }
 .tab:first-child {
   border-radius: 10px 0 0 0;
+  border: 2px #85EBBC solid;
+  border-bottom: none;
 }
 .tab:last-child {
   border-radius: 0 10px 0 0;
