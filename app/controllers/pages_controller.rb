@@ -70,6 +70,13 @@ class PagesController < ApplicationController
     imdb_year = movie_obj["Year"].to_i
     imdb_id = movie_obj["imdbID"] #=> returns id as a string
     imdb_genre = movie_obj["Genre"]
+
+    imdb_director = movie_obj["Director"]
+    imdb_rated = movie_obj["Rated"]
+    imdb_run_time = movie_obj["Runtime"]
+    imdb_actor = movie_obj["Actors"]
+    imdb_writer = movie_obj["Writer"]
+
     # raise
     # find backdrops in tmd:
 
@@ -81,7 +88,7 @@ class PagesController < ApplicationController
     tmdb_id = parsed_tmdb[0]['table']['id']
     tmdb_back_drop = "https://image.tmdb.org/t/p/original#{parsed_tmdb[0]['table']['backdrop_path']}"
     # raise
-    Movie.create(title: imdb_title, synopsis: imdb_synopsis, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre, backdrop_url: tmdb_back_drop, photo_url: imdb_photo)
+    Movie.create(title: imdb_title, synopsis: imdb_synopsis, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre, backdrop_url: tmdb_back_drop, photo_url: imdb_photo, director: imdb_director, rated: imdb_rated, run_time: imdb_run_time, actor: imdb_actor, writer: imdb_writer)
 
   end
 

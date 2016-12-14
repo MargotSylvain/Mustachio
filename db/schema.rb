@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213180510) do
+ActiveRecord::Schema.define(version: 20161213230344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 20161213180510) do
     t.string   "genre"
     t.text     "backdrop_url"
     t.text     "photo_url"
+    t.string   "director"
+    t.string   "rated"
+    t.string   "run_time"
+    t.string   "actor"
+    t.string   "writer"
   end
 
   create_table "reviews", force: :cascade do |t|
