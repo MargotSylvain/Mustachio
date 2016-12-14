@@ -1,11 +1,13 @@
 class CollectionsController < ApplicationController
-    before_action :set_collection, only: [:show]
+    before_action :set_collection, only: [:show,:mycollection]
   def index
     @collections = current_user.collections
   end
 
   def show
     @review = Review.new
+    @movie = @collection.movie
+
   end
 
   def new
