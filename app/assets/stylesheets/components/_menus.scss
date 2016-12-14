@@ -38,3 +38,25 @@
   color: white;
   text-decoration: none;
 }
+
+
+.friends-menu {
+  position: fixed;
+  left: 0px;
+  top: 180px;
+  z-index: 1;
+  width: 120px;
+  height: 220px;
+  background-color: #85EBBC;
+  padding-top: 50px;
+}
+.friends-menu a,p{
+  color: #383838;
+  font-size: 14px;
+  padding: 10px;
+
+}
+.friends-menu a:hover{
+  color: white;
+  text-decoration: none;
+}

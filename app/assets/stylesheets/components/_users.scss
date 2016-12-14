@@ -1,50 +1,63 @@
 .user-profiles-list-minimal{
-    list-style:none;
-    text-align: left;
-    margin: 0 auto;
+  list-style:none;
+  text-align: left;
+  margin: 20px auto;
     // max-width: 750px;
     padding: 0;
-}
+    border: 1px solid #85EBBC;
+    border-radius: 50px;
 
-.user-profiles-list-minimal li{
+  }
+
+  .user-profiles-list-minimal li{
     display: inline-block;
     box-sizing:border-box;
-
     text-align:left;
     font:normal 16px sans-serif;
     padding: 15px;
+    width: 100%;
 
     // min-width:200px;
-}
+  }
 
-.user-profiles-list-minimal .user-avatar{
+  .user-profiles-list-minimal .user-avatar{
     float: left;
     padding-right: 10px;
-}
+  }
 
-.user-profiles-list-minimal .user-avatar img{
+  .user-profiles-list-minimal .user-avatar img{
     border-radius: 50%;
     border:0;
-}
+  }
 
-.user-profiles-list-minimal .user-name{
+  .user-profiles-list-minimal .user-name{
     white-space: nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
-    margin: 5px 0 0;
-    // max-width: 160px;
-}
-
-.user-profiles-list-minimal .user-name a{
+    margin: 0px 0 0;
+    flex: 0 1 40vw;
+    font-weight: lighter;
     color:#383838;
     text-decoration: none;
-    font-weight: bold;
-}
+    border: none;
+    font-size: 24px;
+    // max-width: 160px;
+  }
+
 
 .user-profiles-list-minimal .user-name span{
-    display: block;
-    font-size: 11px;
-    color: #85EBBC;
-    padding-top:4px;
-    font-weight: normal;
+  display: block;
+  color: #85EBBC;
+  // padding-top:10px;
+  font-weight: normal;
+  float: right;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+
+.user-profiles-list-minimal .user-name img{
+  width:30px;
+  padding-top: -5px;
+
 }

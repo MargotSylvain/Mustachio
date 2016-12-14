@@ -1,4 +1,45 @@
-show
-<%= @friendship.user.username%> = user
-<%= @friendship.friend.username%> = friend
-<%= current_user.friends %>
+<%= render 'friendships/menus'%>
+<div class="row">
+  <div class="container">
+    <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  ">
+      <div class="friend-title">
+        <div class="friend-name-profile">
+          <div class="user-avatar">
+            <% avatar_url = @friend.facebook_picture_url || @friend.photo %>
+            <%= image_tag avatar_url , class: "avatar-xlarge"%>
+          </div>
+          <%=@friend.username %>
+        </div>
+      </div>
+
+      <div class="friend-content">
+        <div class="tabs">
+          <a class="tab active" data-tab="tab-2">
+            <%=pluralize(@friend.tags.size, 'Tag')%>
+          </a>
+          <a class="tab" href="#">
+            <%=pluralize(@friend.collections.size, 'Movie')%>
+          </a>
+        </div>
+        <div id="tab-1" class="tab-content current">
+          <%@friend.tags.each do |tag| %>
+            <li><%= link_to tag.name, tag_path(tag) %></li>
+          <%end %>
+          <%@friend.collections.each do |collection| %>
+            <li><%= link_to collection.movie.title, collection_path(collection) %></li>
+          <%end %>
+        </div>
+        <div id="tab-2" class="tab-content">
+          <%@friend.collections.each do |collection| %>
+            <li>
+              <%= link_to collection.movie.title, collection_path(collection) %>
+              <%= link_to collection.movie.photo_url %>
+            </li>
+          <%end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
