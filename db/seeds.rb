@@ -16,59 +16,38 @@ User.destroy_all
 
 # Create users
 user_1 = User.create(
-  first_name: "Jane",
-  last_name: "Doe",
-  username: "Jane Doe 44",
-  email: "jane@gmail.com",
+  first_name: "Robert",
+  last_name: "Miller",
+  username: "Roobert",
+  email: "robert@gmail.com",
   password: "password",
-  remote_photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629520/Logomakr_6N0U9j_bzp9nx.png'
+  remote_photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629516/Logomakr_8DKl3e_jivaci.png'
 )
 
 user_2 = User.create(
-  first_name: "John",
-  last_name: "Doe",
-  username: "John Doe",
-  email: "john@gmail.com",
+  first_name: "Sandra",
+  last_name: "Walter",
+  username: "Sandra",
+  email: "sandra@gmail.com",
   password: "password",
-  remote_photo_url: "http://res.cloudinary.com/margot-sylvain/image/upload/v1481629516/Logomakr_8DKl3e_jivaci.png"
+  remote_photo_url: "http://res.cloudinary.com/margot-sylvain/image/upload/v1481820063/pexels-photo-27411_awsiep.jpg"
 )
 
+user_3 = User.create(
+  first_name: "Romain",
+  last_name: "Dupont",
+  username: "Romain356",
+  email: "romain@gmail.com",
+  password: "password",
+  remote_photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481820179/pexels-photo-91227_dswhqr.jpg'
+)
 
-movie_1 = Movie.create(
-  title: "Inception",
-  year: 2016,
-  photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629173/inception_mldatf.jpg'
-  )
+user_4 = User.create(
+  first_name: "Margot",
+  last_name: "Sylvain",
+  username: "Sandra",
+  email: "thekanabeachgirl@hotmail.com",
+  password: "password",
+  remote_photo_url: "http://res.cloudinary.com/margot-sylvain/image/upload/v1481820334/15134613_10154114806340872_6420428866292876562_n_c0hzys.jpg"
+)
 
-movie_3 = Movie.create(
-  title: "Rushmore",
-  year: 2016,
-  photo_url: 'http://res.cloudinary.com/margot-sylvain/image/upload/v1481629175/rushmore_cppxpd.jpg',
-  )
-
-collection_1 = Collection.create(
-  movie: movie_1,
-  user: user_1
-  )
-
-collection_3 = Collection.create(
-  movie: movie_3,
-  user: user_1
-  )
-
-tag_1 = Tag.create(
-  name: "romance"
-  )
-
-tag_2 = Tag.create(
-  name: "drama"
-  )
-
-tag_collections_1 = TagCollection.create(
-    tag: tag_1,
-    collection: collection_1
-  )
-tag_collections_2 = TagCollection.create(
-    tag: tag_2,
-    collection: collection_1
-  )

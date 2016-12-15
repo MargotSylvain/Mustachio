@@ -3,6 +3,7 @@
   color: white;
   // padding: 10px 0px; This was outside the footer-wrapper
   margin: auto;
+
 }
 
 .footer-wrapper {
@@ -19,7 +20,8 @@
 }
 
 .footer-left {
-  justify-content: flex-start;
+  // justify-content: space-around;
+  // font-size: 12px;
 }
 
 .footer-right {
@@ -32,6 +34,7 @@
   text-decoration: none;
   color: white;
   font-size: 10px;
+    padding-top: 20px;
 }
 
 #footer p:hover {
@@ -43,6 +46,7 @@
   text-decoration: none;
   color: white;
   font-size: 10px;
+    padding-top: 20px;
 }
 
 #footer a:hover {
