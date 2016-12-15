@@ -1,11 +1,6 @@
-<% content_for :meta_title do %>
-  <% if params[:tag_id] %>
-    <% "Checkout the list #{Tag.find(params[:tag_id]).name}"  %>
-  <% else %>
-    <% "Checkout the movie collection of #{current_user.username}"  %>
-  <% end %>
-<% end %>
+<% content_for :meta_title , "#{current_user.username}" %>
 <% content_for :meta_description, "test" %>
+<% content_for :meta_image , "logo-meta.png" %>
 
 
 <div id="fb-root"></div>
