@@ -84,3 +84,27 @@
   border-bottom: 1px solid #85EBBC;
   padding-bottom: 5px;
 }
+
+
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e8e8e8;
+  padding: 20px;
+  border-radius: 60px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  &:hover {
+    background: #E6E6E6;
+    text-decoration: none;
+    color: black;
+  }
+  h3 {
+    margin: 0;
+    padding-left: 10px;
+    flex: 1 auto;
+    font-size: 20px;
+  }
+}

@@ -183,5 +183,50 @@ form.movie {
 }
 
 
+.movie-adds {
+  display: flex;
+  width: 500px;
+  justify-content: space-around;
+  margin: 50px auto;
+}
+
+.movie-add {
+  width: 130px;
+  height: 150px;
+  background-size: cover;
+  opacity: 0.8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 50px;
+  border-radius: 10px;
+  &:hover {
+    opacity: 1;
+  }
+  &.clicked {
+    opacity: 1;
+    .fa {
+      color: $green;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    }
+  }
+}
+
+.list-form-container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  margin-top: 100px;
+  border-radius: 4px;
+  h2 {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+}
+
+
 
 
