@@ -30,13 +30,13 @@
     <% if @collections.size == 0 %>
       <p class="no-movie">No movies yet in your collection!</p>
     <% else %>
-      <% @collections.each do |collection| %>
+      <% @collections.reverse.each do |collection| %>
 
         <div class="movie-item">
           <div class="movie-picture" style="background-image: url('<%= collection.movie.photo_url %>')"></div>
           <div class="movie-body">
             <h3><%= collection.movie.title + ' (' + collection.movie.year.to_s + ")" %></h3>
-            <p><%= collection.movie.synopsis %></p>
+
             <p>
               <% unless collection.reviews.empty? %>
                 <% collection.reviews.first.my_rating.to_i.times do %>
@@ -48,6 +48,7 @@
                 <span>(<%= collection.reviews.empty? ? '' : collection.reviews.first.phrase %>)</span>
               <% end %>
             </p>
+            <p><%= collection.movie.synopsis %></p>
             <% unless current_user.tags.empty? %>
             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#collection-<%= collection.id %>">
               Add to list <i class="fa fa-plus"></i>

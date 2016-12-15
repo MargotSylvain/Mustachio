@@ -188,11 +188,13 @@ form.movie {
   width: 500px;
   justify-content: space-around;
   margin: 50px auto;
+  flex-wrap: wrap;
 }
 
 .movie-add {
   width: 130px;
   height: 150px;
+  margin: 5px;
   background-size: cover;
   opacity: 0.8;
   color: white;
