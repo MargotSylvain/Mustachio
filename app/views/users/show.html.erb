@@ -1,0 +1,65 @@
+<div class="container public-profile ">
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="user-avatar">
+          <% avatar_url = @user.facebook_picture_url || @user.photo %>
+          <%= image_tag avatar_url , class: "avatar-xlarge"%>
+        </div>
+        <p class="user-name public-profile">
+          <%=@user.username.capitalize %>
+
+        </p>
+      </div>
+  </div>
+</div>
+
+
+
+
+<div class="container movies-container">
+
+
+
+  <div class="movies">
+    <% if @user.collections.count == 0 %>
+    <p class="no-movie">No movies the collection :(</p>
+    <% else %>
+    <% @user.collections.reverse.each do |collection| %>
+
+    <div class="movie-item">
+      <div class="movie-picture" style="background-image: url('<%= collection.movie.photo_url %>')"></div>
+      <div class="movie-body">
+        <h3><%= collection.movie.title + ' (' + collection.movie.year.to_s + ")" %></h3>
+
+        <p>
+          <% unless collection.reviews.empty? %>
+          <% collection.reviews.first.my_rating.to_i.times do %>
+          <i class="fa fa-star yellow"></i>
+          <% end %>
+          <% (5 - collection.reviews.first.my_rating.to_i).times do %>
+          <i class="fa fa-star grey"></i>
+          <% end %>
+          <span>(<%= collection.reviews.empty? ? '' : collection.reviews.first.phrase %>)</span>
+          <% end %>
+        </p>
+        <% unless collection.tags.size == 0 %>
+        Lists:
+        <%collection.tags.each do |tag| %>
+        <p><%= tag.name %></p>
+        <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+    <%end%>
+
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+

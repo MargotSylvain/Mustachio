@@ -1,5 +1,5 @@
-<% content_for :meta_title , "#{current_user.username}" %>
-<% content_for :meta_description, "test" %>
+<% content_for :meta_title , "This is my collection on Mustachio" %>
+<% content_for :meta_description, "Go check it out and build yours!" %>
 <% content_for :meta_image , "logo-meta.png" %>
 
 
@@ -80,7 +80,10 @@
       </div>
     </div>
     <%end%>
-    <div class="fb-share-button" data-href="http://enjoymustachio.herokuapp.com/collections" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fenjoymustachio.herokuapp.com%2Fcollections&amp;src=sdkpreparse">Share</a></div>
+    <div class="fb-share-button"
+      data-href="http://www.enjoymustachio.herokuapp.com/users/<%=@user.id %>"
+      data-layout="button_count">
+  </div>
     <% end %>
   </div>
 

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-    skip_before_action :authenticate_user!, only: [:home,:search]
+    skip_before_action :authenticate_user!, only: [:home, :about]
     # ^ :search authentication will be enable upon
   def home
   end

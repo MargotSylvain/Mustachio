@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get "search", to: "pages#search"
     get "pending", to: "friendships#pending"
     get "sent", to: "friendships#sent"
+    get "profile", to: "pages#profile"
 
      # Sidekiq Web UI, only for admins.
   require "sidekiq/web"
