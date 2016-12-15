@@ -12,6 +12,14 @@ gem 'themoviedb-api'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 
+# Gemfile
+gem 'sidekiq'
+gem 'sidekiq-failures'
+
+# Dependency for the Sidekiq Web UI
+#   => https://github.com/mperham/sidekiq/wiki/Monitoring
+gem 'sinatra', ">= 2.0.0.beta2", require: false
+
 gem 'figaro'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,5 +1,5 @@
 class TagCollectionsController < ApplicationController
-  before_action :find_collection, only: [:create]
+  #before_action :find_collection, only: [:create]
   before_action :find_tag_collection, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,17 +16,17 @@ class TagCollectionsController < ApplicationController
   end
 
   def create
-    @tag_collection = current_user.collections.build(tag_collection_params)
-    @tag_collection.collection = @collection
-    # raise
-    # @tag_collection.save
+    movie = Movie.find(params[:tag_collection][:movie_id])
+    my_collection = Collection.create(movie: movie, user: current_user)
+    @tag_collection = TagCollection.new(tag_id: params[:tag_collection][:tag_id], collection: my_collection )
+
 
     if @tag_collection.save
       flash[:notice] = 'your tag_collection has been published'
       redirect_to collections_path
     else
       flash[:notice] = 'tag_collection invalid'
-      redirect_to collection_path(@collection)
+      redirect_to collections_path
     end
   end
 
@@ -52,7 +52,7 @@ private
     @tag_collection = Tag_collection.find(params[:id])
   end
   def tag_collection_params
-    params.require(:tag_collection).permit(:collection_id)
+    params.require(:tag_collection).permit(:collection_id, :tag_id)
   end
 
 end
