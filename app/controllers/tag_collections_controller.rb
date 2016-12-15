@@ -1,4 +1,5 @@
 class TagCollectionsController < ApplicationController
+
   def create
     @tag_collection = TagCollection.new(tag_collection_params)
     if @tag_collection.save

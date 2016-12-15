@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :collections do
       resources :reviews
     end
+
+    resources :tag_collections, only: [:create]
     resources :tags
     resources :users
     resources :movies, only: [:show]
@@ -23,4 +25,9 @@ Rails.application.routes.draw do
     get "search", to: "pages#search"
     get "pending", to: "friendships#pending"
     get "sent", to: "friendships#sent"
+
+     # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+    mount Sidekiq::Web => '/sidekiq' # warning everyone has access to this.. please consult the lecture notes ..lambda { |u| u.admin }
 end
+
