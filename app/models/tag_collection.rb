@@ -1,6 +1,6 @@
 class TagCollection < ApplicationRecord
-  belongs_to :collection, dependent: :destroy
-  belongs_to :tag, dependent: :destroy
+  belongs_to :collection
+  belongs_to :tag
   # ^ was not added in the migration
 
   has_many :movies, through: :collections

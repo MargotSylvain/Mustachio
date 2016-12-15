@@ -21,7 +21,7 @@ class TagsController < ApplicationController
       TagCollection.create!(collection_id: collection.id, tag_id: @tag.id)
     end
 
-    redirect_to tags_path(@tag)
+    redirect_to collections_path
   end
 
   def edit
