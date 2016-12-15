@@ -11,6 +11,7 @@ gem 'themoviedb-api'
 #gems for uploading pictures
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
+gem 'chosen-rails'
 
 # Gemfile
 gem 'sidekiq'

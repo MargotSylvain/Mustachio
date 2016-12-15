@@ -1,65 +1,102 @@
-<!-- <style type="text/css"> *{ border: 1px solid red !important;} </style> -->
-<%= render 'collections/menus'%>
+<div class="search-section text-center" style='padding-top:80px;'>
+  <!-- search -->
+  <h2>Add a movie</h2>
+  <%= simple_form_for :movie, method: :get, url: search_path do |f|%>
+  <%= f.input :id, collection: Movie.all, input_html: {class: 'chosen-select form-control'}, prompt: 'which title?', label: false  %>
+  <%= f.input :year, collection: (1990..2016).to_a, input_html: {class: 'chosen-select form-control'}, prompt: 'which year?', label: false  %>
+  <% image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
+  <%= f.submit "search movie", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-<div class="container">
-  <div class="row">
-    <% @collections.each do |collection| %>
 
-      <div class="col-xs-6">
-      <div class="collection-bord">
-        <div class="row">
-          <div class="col-xs-5">
-            <%= image_tag(collection.movie.photo_url, class: "banner-poster") %>
-          </div>
-            <div class="col-xs-7">
-            <div class="row">
-              <div class="col-xs-12">
-                <h4><%= collection.movie.title %></h4>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-              <%= collection.reviews.first.phrase  if collection.reviews.first %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-              <%= collection.reviews.first.my_rating  if collection.reviews.first %>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div><!--end of col-6-->
-      </div>
+<div class="container movies-container">
+
+  <div class="list-navs">
+    <%= link_to collections_path, class: "list-nav #{params[:tag_id] ? '' : 'active'}" do %>
+      All <span class="movie-counter"><%= current_user.collections.count %></span>
+    <% end %>
+    <% current_user.tags.distinct.take(3).each do |tag| %>
+      <%= link_to collections_path(tag_id: tag.id), class: "list-nav #{(params[:tag_id].to_i == tag.id )  ? 'active' : ''  }" do %>
+        <%= tag.name  %> <span class="movie-counter"><%=  tag.collections.count %></span>
+      <% end %>
+    <% end %>
+    <%= link_to new_tag_path, class: "list-nav list-btn" do %>
+      Add movie list <i class="fa fa-plus"></i>
     <% end %>
   </div>
-</div>
 
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  movie-list-card ">
+  <div class="movies">
     <% if @collections.size == 0 %>
-    <p>Add movies to your collection!</p>
-    <% else%>
-      <% @collections.each do |collection| %>
-      <ul class ="movie-list">
-          <li>
-            <div class="movie-name">
-              <% film = collection.movie.title + ' (' + collection.movie.year.to_s + ")" %>
-              <%= link_to film, collection_path(collection) %>
-            </div>
-            <div class="movie-actions">
-              <span><%= link_to 'Remove', collection_path(collection), method: :delete%> / <%= link_to 'Share'%> </span>
-            </div>
-          </li>
-        <%end%>
-      </ul>
+      <p class="no-movie">No movies yet in your collection!</p>
+    <% else %>
+      <% @collections.reverse.each do |collection| %>
+
+        <div class="movie-item">
+          <div class="movie-picture" style="background-image: url('<%= collection.movie.photo_url %>')"></div>
+          <div class="movie-body">
+            <h3><%= collection.movie.title + ' (' + collection.movie.year.to_s + ")" %></h3>
+
+            <p>
+              <% unless collection.reviews.empty? %>
+                <% collection.reviews.first.my_rating.to_i.times do %>
+                  <i class="fa fa-star yellow"></i>
+                <% end %>
+                <% (5 - collection.reviews.first.my_rating.to_i).times do %>
+                  <i class="fa fa-star grey"></i>
+                <% end %>
+                <span>(<%= collection.reviews.empty? ? '' : collection.reviews.first.phrase %>)</span>
+              <% end %>
+            </p>
+            <p><%= collection.movie.synopsis %></p>
+            <% unless current_user.tags.empty? %>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#collection-<%= collection.id %>">
+              Add to list <i class="fa fa-plus"></i>
+            </button>
+            <% end %>
+
+          </div>
+          <div class="movie-actions">
+            <%= link_to collection_path(collection) do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <%= link_to collection_path(collection), method: :delete do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
       <%end%>
-    </div>
+    <% end %>
   </div>
 
 </div>
+
+
+
+<% @collections.each do |collection| %>
+  <!-- Modal -->
+  <div class="modal fade modal-movie" id="collection-<%= collection.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel">Add to a list</h4>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for TagCollection.new do |f| %>
+            <%= f.input :tag_id, collection: current_user.tags.distinct.reject {|t| collection.tags.include? t }, prompt: "Choose a list", label: false    %>
+            <%= f.input :collection_id, as: :hidden, input_html: { value: collection.id }  %>
+            <%= f.submit "Add to list", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+<% render 'collections/menus'%>
 
 <!-- <div class="movie-list-card">
 

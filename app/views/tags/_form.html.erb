@@ -1,10 +1,28 @@
-<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 text-center">
+<div class="text-center list-form-container">
+    <h2 class="text-center">Make your new list</h2>
     <%= simple_form_for(@tag, :html => {:class => ''})do |f| %>
     <div class=''>
       <%= f.text_field :name, label: false, placeholder: '#list_name', class: 'tag-input' %></br>
-      <%= f.association :movies, as: :check_boxes, label_method: :title, collection: current_user.movies %>
-      <%= image_submit_tag("logo-white.png", class: 'image-responsive avatar tags-logo') %>
+
+
+      <div class="movie-adds">
+      <input type="hidden" name="tag[movie_ids][]" value="">
+      <% current_user.movies.each do |movie| %>
+        <label for="tag_movie_ids_<%= movie.id %>"><input class="check_boxes optional hidden" type="checkbox" value="<%= movie.id %>" name="tag[movie_ids][]" id="tag_movie_ids_<%= movie.id %>">
+          <div class="movie-add" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 30%), url('<%= movie.photo_url %>')" data-toggle="tooltip" data-placement="top" title="<%= movie.title %>">
+            <i class="fa fa-check"></i>
+          </div>
+        </label>
+      <% end %>
+      </div>
+
+      <%= f.submit "Create your list", class: 'btn' %>
     </div>
+
+
+
+
+
     <% end %>
 </div>
 
