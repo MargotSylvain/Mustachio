@@ -8,8 +8,10 @@
       <div id='sign-out'>
         <%= link_to 'sign out', destroy_user_session_path, method: :delete%>
       </div>
-    <%else%>
-      <%=link_to "sign in", new_user_session_path, class: 'btn btn-signin'%>
+    <% else %>
+      <div>
+        <%= link_to "sign in", new_user_session_path, class: 'btn btn-signin'%>
+      </div>
       <div id='sign-up'>
         <%= link_to "Not on Mustachio?", new_user_registration_path %>
       </div>

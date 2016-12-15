@@ -11,7 +11,6 @@ class CollectionsController < ApplicationController
   def show
     @review = Review.new
     @movie = @collection.movie
-
   end
 
   def new
@@ -25,6 +24,7 @@ class CollectionsController < ApplicationController
     redirect_to collections_path(@collection)
   end
 
+
   # def edit
   #   @collection = Collection.find(params[:id])
   # end
@@ -35,11 +35,11 @@ class CollectionsController < ApplicationController
   # #   redirect_to collections_path(@collection)
   # end
 
-  # def destroy
-  #   @collection = Collection.find(params[:id])
-  #   @collection.destroy
-  #   redirect_to collections_path
-  # end
+  def destroy
+    @collection = Collection.find(params[:id])
+    @collection.destroy
+    redirect_to collections_path
+  end
 
   private
   def set_collection
