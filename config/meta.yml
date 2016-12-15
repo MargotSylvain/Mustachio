@@ -1,0 +1,4 @@
+# config/meta.yml
+meta_title: "Mustachio"
+meta_description: "Enjoy your me time"
+meta_image: "logo-meta.png" # Une image dans votre dossier app/assets/images/
