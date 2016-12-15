@@ -73,7 +73,7 @@
 
 
 .movies-container {
-  max-width: 750px;
+  max-width: 800px;
   background: white;
   margin-top: 30px;
   border-radius: 5px;
@@ -121,3 +121,67 @@ form.movie {
 .chosen-container-single .chosen-single div {
   height: initial;
 }
+
+.movie-item {
+  display: flex;
+  margin-bottom: 10px;
+  background: rgb(250, 250, 250);
+  position: relative;
+  .movie-picture {
+    flex: 0 0 120px;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+  }
+  .movie-body {
+    flex: 1 auto;
+    padding: 10px 20px;
+    button {
+      font-size: 12px !important;
+      padding: 5px 20px !important;
+      position: absolute;
+      bottom: 0px;
+      right: 10px;
+    }
+    h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .fa.yellow {
+      color: $yellow;
+    }
+    .fa.grey {
+      color: #CCCCCC;
+    }
+  }
+  .movie-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-start;
+    padding: 10px;
+    i {
+      padding: 0 10px;
+      font-size: 19px;
+      color: #808080;
+      opacity: 0.4;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.modal-movie {
+  .modal-content {
+    margin: 0 120px !important;
+  }
+  .modal-body {
+    padding: 10px 50px;
+    text-align: center;
+  }
+}
+
+
+
+
