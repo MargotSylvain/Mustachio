@@ -9,13 +9,12 @@
        <%= image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
        <% end %>
 
-       <% if params[:search].nil? or params[:search].strip == '' %>
-       <% else %>
-       <% if @users.present? %>
-       <%= render 'users' %>
-       <% else %>
-       <p>There are no user matching: <%= params[:search] %>.</p>
-       <% end %>
+
+
+        <% if @users.present? %>
+          <%= render 'users' %>
+        <% else %>
+          <p>There are no user matching: <%= params[:search] %>.</p>
        <% end %>
      </div>
 
