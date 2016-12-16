@@ -1,79 +1,63 @@
 <!-- <style type="text/css"> *{ border: 1px solid red !important;} </style> -->
 
-<div class="container" style="padding-top: 80px">
+<div class="container" style='padding-top:80px;'>
   <div class="row">
-  <h4 class="text-center">My friends</h4>
-      <div class="container center">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-            <div class="col-xs-12 col-sm-3">
-              <%= link_to 'View', friendships_path%>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <%= link_to 'Add', users_path%>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <%= link_to 'Pending', pending_path%>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <%= link_to 'Sent', sent_path%>
-            </div>
-          </div>
-        </div>
+    <div class="col-sm-6 col-sm-offset-3">
+
+      <div class="friend-nav">
+        <%= link_to 'View', friendships_path%>
+        <%= link_to 'Add', users_path%>
+        <%= link_to 'Pending', pending_path%>
+        <%= link_to 'Sent', sent_path%>
       </div>
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 friend-card">
-      <div class="col-xs-6">
+
+     <%= link_to friendship_path(@friend), class: "friend-card" do %>
         <% avatar_url = @friend.facebook_picture_url || @friend.photo %>
-        <%= image_tag avatar_url , class: "avatar-large center-img"%>
-      </div>
-      <div class="col-xs-6">
-        <div class="row">
-          <div class="col-xs-12 center">
-            <h3><%= @friend.username %></h3>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 center">
-              <p><%= @friend.first_name %>
-              <%= @friend.last_name %></p>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="user-avatar" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
+         <h3><%= @friend.username%></h3>
+         <span>
+         <span style="padding-right: 5px;"><%=pluralize(@friend.collections.size, 'Movie')%></span>
+         <span><%=pluralize(@friend.tags.size, 'Tag')%></span>
+       </span>
+     <% end %>
 
     </div>
   </div>
 </div>
 
-
-
-<div class="container" style='padding-top:80px;'>
+<div class="container">
   <div class="row">
     <% @friend.collections.each do |collect| %>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-3">
+        <div class="friend-movie" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 30%),url('<%= image_path(collect.movie.photo_url) %>');">
+          <div class="add-to-collection">
+            <%= simple_form_for Collection.new, path: collections_path do |f| %>
+              <%= f.hidden_field :movie_id, value: collect.movie_id %>
+              <%= f.submit "save to my collection", class: "btn btn-primary center-img"%>
+            <% end %>
+          </div>
+        </div>
 
-        <%= image_tag(collect.movie.photo_url, class: "banner-poster center-img div-shadow") %>
-
-      <div class="friend-content-div">
-        <%= simple_form_for Collection.new, path: collections_path do |f| %>
-          <%= f.hidden_field :movie_id, value: collect.movie_id %>
-          <%= f.submit "save to my collection", class: "btn btn-primary center-img"%>
-        <% end %>
-      </div>
-      <div class="friend-content-div">
-      <% @movie_id = collect.movie_id %>
-      <% @movie_id.to_s %>
-
-        <% current_user.tags.distinct.each do |tag| %>
-          <%= simple_form_for TagCollection.new, path: tag_collections_path do |f| %>
-            <%= f.hidden_field :tag_id, value: tag.id %>
-            <%= f.hidden_field :collect_id, value: current_user.collections.find_by(@movie).to_s%>
-            <p class="center">Add to <%= tag.name  %></p>
-            <%= f.submit "+", class: "btn btn-primary add-to-col center-img"%>
-          <% end %>
-        <% end %>
-      </div>
 
       </div>
     <% end %>
   </div>
 </div>
+
+
+
+<% if false %>
+  <div class="friend-content-div">
+  <% @movie_id = collect.movie_id %>
+  <% @movie_id.to_s %>
+<!--insert add to tags form from readMe file-->
+    <% current_user.tags.distinct.each do |tag| %>
+      <%= simple_form_for TagCollection.new, path: tag_collections_path do |f| %>
+        <%= f.hidden_field :tag_id, value: tag.id %>
+        <%= f.hidden_field :collection_id, value: current_user.collections.find_by({movie_id: @movie_id}).to_s%>
+        <p class="center">Add to <%= tag.name  %></p>
+        <%= f.submit "+", class: "btn btn-primary add-to-col center-img"%>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
