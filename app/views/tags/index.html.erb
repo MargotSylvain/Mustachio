@@ -1,7 +1,11 @@
-<p>Here are all the tags in your Collections</p>
-<% @tags.each do |tag| %>
+<div class="container" style="margin-top: 80px">
+  <p>Here are all the tags in your Collections</p>
+<% current_user.tags.each do |tag| %>
   <p><%= link_to tag.name, tag_path(tag) %></p>
 <% end %>
 
 <%=link_to "Create new tag", new_tag_path %>
+</div>
+
+
 

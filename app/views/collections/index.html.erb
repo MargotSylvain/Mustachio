@@ -17,7 +17,7 @@
   <h2>Add a movie</h2>
   <%= simple_form_for :movie, method: :get, url: search_path do |f|%>
   <%= f.input :id, collection: Movie.all, input_html: {class: 'chosen-select form-control'}, prompt: 'which title?', label: false  %>
-  <%= f.input :year, collection: (1990..2016).to_a, input_html: {class: 'chosen-select form-control'}, prompt: 'which year?', label: false  %>
+  <%= f.input :year, collection: (1990..2016).to_a, input_html: {class: 'chosen-select form-control'}, prompt: '(which year?)', label: false  %>
   <% image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
   <%= f.submit "search movie", class: "btn btn-primary" %>
   <% end %>
@@ -29,6 +29,10 @@
   <div class="list-navs">
     <%= link_to collections_path, class: "list-nav #{params[:tag_id] ? '' : 'active'}" do %>
     All <span class="movie-counter"><%= current_user.collections.count %></span>
+      <div class="fb-share-button"
+      data-href="http://enjoymustachio.herokuapp.com/users/<%= current_user.id %>"
+      data-layout="button">
+  </div>
     <% end %>
     <% current_user.tags.distinct.take(3).each do |tag| %>
     <%= link_to collections_path(tag_id: tag.id), class: "list-nav #{(params[:tag_id].to_i == tag.id )  ? 'active' : ''  }" do %>
@@ -80,10 +84,7 @@
       </div>
     </div>
     <%end%>
-    <div class="fb-share-button"
-      data-href="http://enjoymustachio.herokuapp.com/users/<%= current_user.id %>"
-      data-layout="button_count">
-  </div>
+
     <% end %>
   </div>
 

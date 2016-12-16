@@ -22,3 +22,4 @@ $(".tab").on("click", function(event) {
   $(".tab.active").removeClass("active");
   $(this).addClass("active");
 });
+
