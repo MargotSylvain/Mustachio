@@ -1,56 +1,38 @@
 // Your footer style
-#footer {
-  color: white;
-  // padding: 10px 0px; This was outside the footer-wrapper
+.footer {
+  color: #999;
+  font-size: 12px;
+  padding: 20px 0px;
   margin: auto;
-
 }
 
 .footer-wrapper {
-  background-color: #383838;
-  // margin: 50px 0 0 0; DONT NEED THIS!
-  // position: relative; DONT NEED THIS!
+  background-color: #333;
+  // margin: 0 0 0;
+  position: relative;
   bottom: 0px;
   left: 0px;
   right: 0px;
 }
 
-.footer-box{
-  display: flex;
-}
-
 .footer-left {
-  // justify-content: space-around;
-  // font-size: 12px;
+  text-align: left;
+  //position: absolute;
 }
 
 .footer-right {
   text-align: right;
-  justify-content: flex-end;
-  float: right;
+  //position: relative;
 }
 
-#footer p {
+.footer a {
   text-decoration: none;
-  color: white;
-  font-size: 10px;
-    padding-top: 20px;
+  color: #999;
 }
 
-#footer p:hover {
+.footer a:hover {
   text-decoration: none;
   color: #eee;
 }
 
-#footer a {
-  text-decoration: none;
-  color: white;
-  font-size: 10px;
-    padding-top: 20px;
-}
-
-#footer a:hover {
-  text-decoration: none;
-  color: #eee;
-}
 

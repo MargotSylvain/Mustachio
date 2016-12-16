@@ -7,13 +7,13 @@
   <!-- Right Navigation -->
   <div class="navbar-mustachio-right hidden-xs hidden-sm">
 
-   <%=link_to "Collection", collections_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
+   <%=link_to "Collection", collections_path, class: "navbar-mustachio-item navbar-mustachio-link #{controller_name.in?(["friendships", "users"]) ? '' : 'actif'}" %>
 
    <!-- Text link -->
-   <%=link_to "Friends", friendships_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
+   <%=link_to "Friends", friendships_path, class: "navbar-mustachio-item navbar-mustachio-link #{controller_name.in?(["friendships", "users"]) ? 'actif' : ''}" %>
 
    <!-- Text link -->
-   <%=link_to "Must", collections_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
+   <%link_to "Must", collections_path, class: "navbar-mustachio-item navbar-mustachio-link" %>
 
    <!-- Notification link-->
  <!--   <a href="" class="navbar-mustachio-item navbar-mustachio-link">
@@ -43,7 +43,7 @@
     <ul class="dropdown-menu dropdown-menu-right navbar-mustachio-dropdown-menu">
       <li><%=link_to "Collection", collections_path%></li>
       <li><%=link_to "Friends", friendships_path%></li>
-      <li><%=link_to "Must", collections_path%></li>
+      <li><%link_to "Must", collections_path%></li>
       <li><%= link_to 'Profile', edit_user_registration_path%></li>
       <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></li>
     </ul>
