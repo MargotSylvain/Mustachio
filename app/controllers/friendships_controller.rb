@@ -4,10 +4,10 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(friend_id: params[:friend_id], user_id: params[:user_id] )
     if @friendship.save
       flash[:notice] = "Friend request sent."
-      redirect_to friendships_url
+      redirect_to friendships_path
     else
       flash[:error] = "Unable to request friendship."
-      redirect_to friendships_url
+      redirect_to friendships_path
     end
   end
 
@@ -15,9 +15,9 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find_by(id: params[:id])
     @friendship.update(accepted: true)
       if @friendship.save!
-        redirect_to friendships_url, notice: "Successfully confirmed friend!"
+        redirect_to friendships_path, notice: "Successfully confirmed friend!"
       else
-        redirect_to friendships_url, notice: "Sorry! Could not confirm friend!"
+        redirect_to friendships_path, notice: "Sorry! Could not confirm friend!"
       end
     end
 
@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
     # @friendship = current_user.friendships.find(params[:id])
    Friendship.destroy(friendship)
     flash[:notice] = "Removed friendship."
-    redirect_to friendships_url
+    redirect_to friendships_path
   end
 
   def show
