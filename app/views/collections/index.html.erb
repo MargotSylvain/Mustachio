@@ -30,7 +30,7 @@
     <%= link_to collections_path, class: "list-nav #{params[:tag_id] ? '' : 'active'}" do %>
     All <span class="movie-counter"><%= current_user.collections.count %></span>
       <div class="fb-share-button"
-      data-href="http://enjoymustachio.herokuapp.com/users/<%= current_user.id %>"
+      data-href="http://muustachio.com/users/<%= current_user.id %>"
       data-layout="button">
   </div>
     <% end %>
