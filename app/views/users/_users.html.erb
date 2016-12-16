@@ -1,21 +1,19 @@
 <%@users.each do |user| %>
-<%unless user == current_user%>
-<ul class ="user-profiles-list-minimal">
-  <li>
-    <div class="user-avatar">
-      <% avatar_url = user.facebook_picture_url || user.photo %>
-      <%= image_tag avatar_url , class: "avatar-large"%>
-    </div>
-    <p class="user-name">
-      <%=user.username %>
-      <span>
-        <%=pluralize(user.collections.size, 'Movie')%>
-        <%=pluralize(user.tags.size, 'Tag')%>
+  <%unless user == current_user%>
 
-        <%=link_to image_tag("add-friend-logo.png", border: 0), friendships_path(friend_id: user, user_id: current_user), method: :post, class: 'image-responsive add-friend-logo' %>
+
+    <%= link_to friendships_path(friend_id: user, user_id: current_user), method: :post, class: "friend-card" do %>
+      <% avatar_url = user.facebook_picture_url || user.photo %>
+
+      <div class="user-avatar" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
+      <h3><%= user.username%></h3>
+      <span>
+        <span style="padding-right: 5px;"><%=pluralize(user.collections.size, 'Movie')%></span>
+        <span><%=pluralize(user.tags.size, 'Tag')%></span>
       </span>
-    </p>
-  </li>
+    <% end %>
+
   <%end%>
-  <%end%>
-</ul>
+<%end%>
+
+
