@@ -1,7 +1,9 @@
 .main-logo{
   width: 50vw;
 }
-
+.main-logo-public-profile{
+  width: 25vw;
+}
 .sign-in-logo{
   width: 50px;
   background-color: #85EBBC;
@@ -32,4 +34,9 @@
   padding: 2px 2px;
   border-radius: 50%;
 }
+
+.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
 
