@@ -1,6 +1,16 @@
-<div class="friends-menu">
-  <%= link_to 'View', friendships_path%></br>
-  <%= link_to 'Add', users_path%></br>
-  <a>Pending</a>
-  <a href="">Sent</a>
-</div>
+
+<div class="col-xs-12 col-sm-6 col-sm-offset-3 center">
+      <div class="col-xs-12 col-sm-3">
+        <%= link_to 'View', friendships_path%>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <%= link_to 'Add', users_path%>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <%= link_to 'Pending', pending_path%>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <%= link_to 'Sent', sent_path%>
+      </div>
+    </div>
+<hr>
