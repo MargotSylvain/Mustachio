@@ -16,8 +16,8 @@
   <!-- search -->
   <h2>Add a movie</h2>
   <%= simple_form_for :movie, method: :get, url: search_path do |f|%>
-  <%= f.input :id, collection: Movie.all, input_html: {class: 'chosen-select form-control'}, prompt: 'which title?', label: false  %>
-  <%= f.input :year, collection: (1990..2016).to_a, input_html: {class: 'chosen-select form-control'}, prompt: '(which year?)', label: false  %>
+  <%= f.input :title, input_html: {class: 'chosen-select form-control'}, prompt: 'which title?', placeholder: 'which title?',label: false  %>
+  <%= f.input :year, input_html: {class: 'chosen-select form-control'}, prompt: '(which year?)', placeholder: 'which year(optional)?',label: false  %>
   <% image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
   <%= f.submit "search movie", class: "btn btn-primary" %>
   <% end %>
