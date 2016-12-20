@@ -1,6 +1,6 @@
 <div class="container" style='padding-top:80px;'>
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  ">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= render 'friendships/menus'%>
       <%number = 0 %>
       <% current_user.received_friendships.each do |request| %>
@@ -11,30 +11,21 @@
       <% if number == 0 %>
       <h4>You don't have any friend requests...</h4>
       <% else %>
-
       <h4>Friend requests</h4>
       <% current_user.received_friendships.each do |request| %>
-      <%unless request.accepted == true%>
-      <ul class ="friend-profiles-list-minimal">
-        <li>
-          <div class="friend-avatar">
-            <% avatar_url = request.user.facebook_picture_url || request.user.photo %>
-            <%= image_tag avatar_url , class: "avatar-large"%>
-          </div>
-          <p class="friend-name">
-           <%=request.user.username %>
-          <span>
-            <%=pluralize(request.user.collections.size, 'Movie')%>
-            <%=pluralize(request.user.tags.size, 'Tag')%>
-            <%= link_to "yes",  friendship_path(id: request.id), method: "put" %>
-            <%= link_to "no", friendship_path(id: request.id), method: :delete %>
-          </span>
-          </p>
-        </li>
-        <%end%>
-        <%end%>
-        <%end%>
-      </ul>
+      <% unless request.accepted == true%>
+          <div class= "friend-card">
+          <% avatar_url = request.user.facebook_picture_url || request.user.photo %>
+          <div class="user-avatar friend-card" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
+          <h3><%=request.user.username %></h3>
+            <span style="padding-right: 5px;"><%=pluralize(request.user.collections.size, 'Movie')%></span>
+            <span><%=pluralize(request.user.tags.size, 'Tag')%></span>
+            <span><%= link_to "yes",  friendship_path(id: request.id), method: "put" %></span>
+            <span><%= link_to "no", friendship_path(id: request.id), method: :delete %></span>
+            </div>
+        <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
