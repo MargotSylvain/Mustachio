@@ -1,15 +1,9 @@
 <!-- <style type="text/css"> *{ border: 1px solid red !important;} </style> -->
-
 <div class="container" style='padding-top:80px;'>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
 
-      <div class="friend-nav">
-        <%= link_to 'View', friendships_path%>
-        <%= link_to 'Add', users_path%>
-        <%= link_to 'Pending', pending_path%>
-        <%= link_to 'Sent', sent_path%>
-      </div>
+    <%=render 'friendships/menus'%>
 
      <%= link_to friendship_path(@friend), class: "friend-card" do %>
         <% avatar_url = @friend.facebook_picture_url || @friend.photo %>
