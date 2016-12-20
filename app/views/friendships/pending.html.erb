@@ -4,13 +4,14 @@
       <%= render 'friendships/menus'%>
       <%number = 0 %>
       <% current_user.received_friendships.each do |request| %>
-      <%unless request.accepted == true%>
-      <% number +=1 %>
-      <% end %>
+        <%unless request.accepted == true%>
+          <% number +=1 %>
+        <% end %>
       <% end %>
       <% if number == 0 %>
       <h4>You don't have any friend requests...</h4>
       <% else %>
+
       <h4>Friend requests</h4>
       <% current_user.received_friendships.each do |request| %>
       <%unless request.accepted == true%>

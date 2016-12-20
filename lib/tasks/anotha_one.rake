@@ -65,7 +65,7 @@ namespace :name do
     flick_list.each do |flick|
       title = flick[:title]
       year = flick[:year]
-      SetMovieJob.set(wait: 8 * delay.seconds).perform_later(title, year)
+      SetMovieJob.set(wait: 45 * delay.seconds).perform_later(title, year)
       delay+= 1
     end
   end
