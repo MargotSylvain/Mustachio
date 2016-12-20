@@ -1,7 +1,7 @@
-<%= render 'friendships/menus'%>
-<div class="container">
+<div class="container" style='padding-top:80px;'>
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3  ">
+      <%= render 'friendships/menus'%>
       <%number = 0 %>
       <% current_user.received_friendships.each do |request| %>
       <%unless request.accepted == true%>
