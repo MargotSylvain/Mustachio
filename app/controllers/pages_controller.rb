@@ -100,6 +100,7 @@ class PagesController < ApplicationController
       # raise
       Movie.create(title: imdb_title, synopsis: imdb_synopsis, trailer: "", media_type: imdb_media_type, year: imdb_year, imdb_id: imdb_id, mdb_id: tmdb_id, genre: imdb_genre, backdrop_url: tmdb_back_drop, photo_url: imdb_photo, director: imdb_director, rated: imdb_rated, run_time: imdb_run_time, actor: imdb_actor, writer: imdb_writer)
     rescue
+      # ^ this prevents the raise from running.. I need to find out how to overrided this action
       nil
     end
   end
