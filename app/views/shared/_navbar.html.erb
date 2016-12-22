@@ -26,8 +26,11 @@
   <!-- Profile picture and dropdown -->
   <div class="navbar-mustachio-item">
     <div class="dropdown">
-      <% avatar_url = current_user.facebook_picture_url || current_user.photo || "http://placehold.it/30x30" %>
-      <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+
+      <% avatar_url = current_user.facebook_picture_url || current_user.photo || "http://placehold.it/30x30"%>
+      <div class="user-avatar dropdown-toggle", data-toggle= "dropdown" style="background-image: url('<%= image_path avatar_url , class: "avatar dropdown-toggle", id: "navbar-wagon-menu" %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
+
       <ul class="dropdown-menu dropdown-menu-right navbar-mustachio-dropdown-menu">
         <li><%= link_to 'Profile', edit_user_registration_path%></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></li>
