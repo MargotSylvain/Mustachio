@@ -11,18 +11,19 @@
       <% if number == 0 %>
       <h4>You don't have any friend requests...</h4>
       <% else %>
-      <h4>Friend requests</h4>
+      <h4 class="text-center">Friend requests</h4>
       <% current_user.received_friendships.each do |request| %>
       <% unless request.accepted == true%>
           <div class= "friend-card">
           <% avatar_url = request.user.facebook_picture_url || request.user.photo %>
-          <div class="user-avatar friend-card" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
-          <h3><%=request.user.username %></h3>
-            <span style="padding-right: 5px;"><%=pluralize(request.user.collections.size, 'Movie')%></span>
-            <span><%=pluralize(request.user.tags.size, 'Tag')%></span>
-            <span><%= link_to "yes",  friendship_path(id: request.id), method: "put" %></span>
-            <span><%= link_to "no", friendship_path(id: request.id), method: :delete %></span>
+          <div class="user-avatar" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
+            <h3><%=request.user.username %></h3>
+            <span style="padding: 5px;"><%=pluralize(request.user.collections.size, 'Movie')%></span>
+            <span  style="padding: 5px;"><%=pluralize(request.user.tags.size, 'List')%></span>
+            <span  style="padding: 5px;"><%= link_to "",  friendship_path(id: request.id), method: "put", class: "fa fa-check", 'data-toggle'=> "tooltip", 'data-placement'=> "top", 'title'=> "Accept"%></span>
+            <span  style="padding: 5px;"><%= link_to "", friendship_path(id: request.id), method: :delete, class: "fa fa-ban" , 'data-toggle'=> "tooltip", 'data-placement'=> "top", 'title'=> "Cancel"%></span>
             </div>
+
         <% end %>
         <% end %>
       <% end %>

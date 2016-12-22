@@ -64,3 +64,18 @@ body {
   border: 1px solid rgb(255,255,255);
   padding: 10px;
 }
+
+a{
+  color: #383838;
+}
+
+a:hover{
+  color: #383838;
+  text-decoration: underline;
+}
+
+a:focus{
+  color: #85EBBC;
+  text-decoration: underline;
+}
+
