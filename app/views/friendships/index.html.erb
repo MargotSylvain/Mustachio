@@ -3,6 +3,8 @@
     <div class="col-sm-6 col-sm-offset-3">
       <%=render 'friendships/menus'%>
 
+      <h4 class="text-center">My friends</h4>
+
       <% current_user.friends.each do |friend|%>
         <%= link_to friendship_path(friend), class: "friend-card" do %>
           <% avatar_url = friend.facebook_picture_url || friend.photo %>
@@ -10,7 +12,7 @@
           <h3><%= friend.username%></h3>
           <span>
             <span style="padding-right: 5px;"><%=pluralize(friend.collections.size, 'Movie')%></span>
-            <span><%=pluralize(friend.tags.size, 'Tag')%></span>
+            <span><%=pluralize(friend.tags.distinct.count, 'List')%></span>
           </span>
         <% end %>
       <%end%>

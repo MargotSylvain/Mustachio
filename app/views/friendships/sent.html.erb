@@ -9,15 +9,15 @@
       <% if number == 0 %>
         <h4>You don't have any pending requests...</h4>
       <% else %>
-        <h4>Requests sent</h4>
-      <% current_user.pending_friends.each do |friendship| %>
+        <h4 class="text-center">Requests sent</h4>
+      <% current_user.pending_friends.distinct.each do |friendship| %>
           <%= link_to friendship_path(friendship), class: "friend-card" do %>
           <% avatar_url = friendship.facebook_picture_url || friendship.photo %>
           <div class="user-avatar" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; width: 50px; height: 50px; border-radius: 50%; background-position: center;"></div>
           <h3><%= friendship.username%></h3>
           <span>
             <span style="padding-right: 5px;"><%=pluralize(friendship.collections.size, 'Movie')%></span>
-            <span><%=pluralize(friendship.tags.size, 'Tag')%></span>
+            <span><%=pluralize(friendship.tags.distinct.count, 'List')%></span>
           </span>
           <% end %>
         <% end %>

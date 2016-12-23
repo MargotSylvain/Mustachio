@@ -1,6 +1,3 @@
-
-
-
 <div class="container" style='padding-top:80px;'>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
@@ -13,20 +10,28 @@
       </div>
 
 
-      <% form_tag(users_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Find friends", class: 'tag-input' %>
-        <%= image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
-      <% end %>
+      <div class="text-center">
+      <%= form_tag(users_path, :method => "get") do %>
+       <%= text_field_tag :search, params[:search], placeholder: "Find friends", class: 'friend-input' %>
+       <% image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
+       <%= submit_tag "Search", class: "btn" %>
+       <% end %>
+     </div>
 
-      <% if @users.present? %>
-        <%= render 'users' %>
-      <% else %>
-        <p>There are no user matching: <%= params[:search] %>.</p>
-      <% end %>
+     <% if params[:search].nil? or params[:search].strip == '' %>
+     <% else %>
+     <% if @users.present?%>
+     <%= render 'users' %>
 
+     <% else %>
+     <p>There are no user matching: <%= params[:search] %>.</p>
+     <% end %>
+     <% end %>
 
-    </div>
-  </div>
+     Soon we will have friends suggestions :)
+
+   </div>
+ </div>
 </div>
 
 
