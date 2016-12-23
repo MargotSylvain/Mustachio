@@ -1,3 +1,8 @@
+<% form_tag(users_path, :method => "get") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Find friends", class: 'tag-input' %>
+        <%= image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
+      <% end %>
+
 <%@users.each do |user| %>
   <%unless user == current_user%>
 
@@ -9,7 +14,7 @@
       <h3><%= user.username%></h3>
       <span>
         <span style="padding-right: 5px;"><%=pluralize(user.collections.size, 'Movie')%></span>
-        <span><%=pluralize(user.tags.size, 'Tag')%></span>
+        <span><%=pluralize(user.tags.distinct.count, 'List')%></span>
       </span>
     <% end %>
 

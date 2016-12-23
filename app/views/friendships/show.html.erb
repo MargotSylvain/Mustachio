@@ -11,7 +11,7 @@
          <h3><%= @friend.username%></h3>
          <span>
          <span style="padding-right: 5px;"><%=pluralize(@friend.collections.size, 'Movie')%></span>
-         <span><%=pluralize(@friend.tags.size, 'List')%></span>
+         <span><%=pluralize(@friend.tags.distinct.count, 'List')%></span>
        </span>
      <% end %>
 
@@ -27,7 +27,7 @@
           <div class="add-to-collection">
             <%= simple_form_for Collection.new, path: collections_path do |f| %>
               <%= f.hidden_field :movie_id, value: collect.movie_id %>
-              <%= f.submit "save to my collection", class: "btn btn-primary center-img"%>
+              <%= f.submit "Save to my collection", class: "btn center-img"%>
             <% end %>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <%= f.hidden_field :tag_id, value: tag.id %>
         <%= f.hidden_field :collection_id, value: current_user.collections.find_by({movie_id: @movie_id}).to_s%>
         <p class="center">Add to <%= tag.name  %></p>
-        <%= f.submit "+", class: "btn btn-primary add-to-col center-img"%>
+        <%= f.submit "+", class: "btn add-to-col center-img"%>
       <% end %>
     <% end %>
   </div>

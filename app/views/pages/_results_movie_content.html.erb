@@ -48,7 +48,7 @@
 
             <%= simple_form_for @collection do |f|%>
             <%= f.hidden_field :movie_id, :value => @movie.id %>
-            <%= button_to "add to collection", collections_path, class: "btn btn-primary add-to-col", method: :post %>
+            <%= button_to "Add to collection", collections_path, class: "btn add-to-col", method: :post %>
             <% end  %>
 
           </div><!--end of col-sm-8-->

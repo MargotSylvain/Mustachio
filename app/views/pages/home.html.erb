@@ -6,11 +6,11 @@
     <% if user_signed_in? %>
       <div><%=link_to "Start now", collections_path, class: 'btn btn-signin'%></div>
       <div id='sign-out'>
-        <%= link_to 'sign out', destroy_user_session_path, method: :delete%>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
       </div>
     <% else %>
       <div>
-        <%= link_to "sign in", new_user_session_path, class: 'btn btn-signin'%>
+        <%= link_to "Sign in", new_user_session_path, class: 'btn btn-signin'%>
       </div>
       <div id='sign-up'>
         <%= link_to "Not on Mustachio?", new_user_registration_path %>

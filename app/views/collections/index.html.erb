@@ -19,7 +19,7 @@
   <%= f.input :title, input_html: {class: 'chosen-select form-control'}, prompt: 'which title?', placeholder: 'which title?',label: false  %>
   <%= f.input :year, input_html: {class: 'chosen-select form-control'}, prompt: '(which year?)', placeholder: 'which year(optional)?',label: false  %>
   <% image_submit_tag("logo-white.png", class: 'image-responsive search-logo') %>
-  <%= f.submit "search movie", class: "btn btn-primary" %>
+  <%= f.submit "Search", class: "btn" %>
   <% end %>
 </div>
 
@@ -68,7 +68,7 @@
         </p>
         <p><%= collection.movie.synopsis %></p>
         <% unless current_user.tags.empty? %>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#collection-<%= collection.id %>">
+        <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#collection-<%= collection.id %>">
           Add to list <i class="fa fa-plus"></i>
         </button>
         <% end %>
@@ -105,7 +105,7 @@
         <%= simple_form_for TagCollection.new do |f| %>
         <%= f.input :tag_id, collection: current_user.tags.distinct.reject {|t| collection.tags.include? t }, prompt: "Choose a list", label: false    %>
         <%= f.input :collection_id, as: :hidden, input_html: { value: collection.id }  %>
-        <%= f.submit "Add to list", class: "btn btn-primary" %>
+        <%= f.submit "Add to list", class: "btn" %>
         <% end %>
       </div>
     </div>

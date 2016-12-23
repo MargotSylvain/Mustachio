@@ -12,7 +12,7 @@
           <h3><%= friend.username%></h3>
           <span>
             <span style="padding-right: 5px;"><%=pluralize(friend.collections.size, 'Movie')%></span>
-            <span><%=pluralize(friend.tags.size, 'List')%></span>
+            <span><%=pluralize(friend.tags.distinct.count, 'List')%></span>
           </span>
         <% end %>
       <%end%>
