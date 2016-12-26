@@ -14,20 +14,26 @@
   align-items: center;
 }
 
+#sign-out{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 #sign-out a{
   color: white;
   font-weight: lighter;
   font-style: italic;
-  font-size: 1.75vh;
-  text-decoration: none;
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 #sign-out a:hover{
   color: #85EBBC;
   font-weight: lighter;
   font-style: italic;
-  font-size: 1.75vh;
-  text-decoration: none;
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 #sign-up a{
@@ -45,3 +51,5 @@
   font-size: 1.75vh;
   text-decoration: none;
 }
+
+
