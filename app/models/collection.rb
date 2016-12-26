@@ -1,5 +1,5 @@
 class Collection < ApplicationRecord
-  belongs_to :movie
+  belongs_to :movie, dependent: :destroy
   belongs_to :user
 
   has_many :reviews, dependent: :destroy
