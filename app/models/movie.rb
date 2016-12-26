@@ -1,4 +1,4 @@
-class Movie < ApplicationRecord
+ class Movie < ApplicationRecord
 # mount_uploader :backdrop, BackdropPhotoUploader
 
 # mount_uploader :photo, MoviePhotoUploader
