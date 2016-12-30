@@ -34,6 +34,7 @@
       data-layout="button">
   </div>
     <% end %>
+    <!-- tag list navbar -->
     <% current_user.tags.distinct.take(3).each do |tag| %>
     <%= link_to collections_path(tag_id: tag.id), class: "list-nav #{(params[:tag_id].to_i == tag.id )  ? 'active' : ''  }" do %>
     <%= tag.name  %> <span class="movie-counter"><%=  tag.collections.count %></span>
@@ -43,7 +44,7 @@
     Add movie list <i class="fa fa-plus"></i>
     <% end %>
   </div>
-
+<!-- start of collections-->
   <div class="movies">
     <% if @collections.size == 0 %>
     <p class="no-movie">No movies yet in your collection!</p>
@@ -78,22 +79,27 @@
         <%= link_to collection_path(collection) do %>
         <i class="fa fa-eye"></i>
         <% end %>
+
+        <!-- this is where the tag_collection needs to be deleted -->
+
         <%= link_to collection_path(collection), method: :delete do %>
         <i class="fa fa-trash"></i>
         <% end %>
       </div>
     </div>
+
     <%end%>
 
     <% end %>
+    <!-- end of collections, this should be exported as a partial-->
   </div>
-
+<!-- end of movies div-->
 </div>
 
 
 
 <% @collections.each do |collection| %>
-<!-- Modal -->
+<!-- Add to list Modal -->
 <div class="modal fade modal-movie" id="collection-<%= collection.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -114,7 +120,7 @@
 <% end %>
 
 
-
+<!-- this is not being called anywhere(no =render'menus'), should be deleted -->
 <% render 'collections/menus'%>
 
 <!-- <div class="movie-list-card">

@@ -11,6 +11,16 @@ class TagCollectionsController < ApplicationController
     end
   end
 
+  def destroy
+
+    # @tag_collection = TagCollection.find(params[:id])
+
+    # @tag_collection.destroy
+    # redirect_to collections_path
+  end
+
+
+
   private
 
   def tag_collection_params
