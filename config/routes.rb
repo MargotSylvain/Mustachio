@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     # end
     resources :collections do
       resources :reviews
+      resources :tag_collections, only: [:destroy]
     end
 
-    resources :tag_collections, only: [:create]
+    resources :tag_collections, only: [:create, :destroy]
     resources :tags
     resources :users
     resources :movies, only: [:show]
