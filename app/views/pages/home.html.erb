@@ -3,20 +3,20 @@
 <div id="bg-landing" style='background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 30%), url("<%= image_path 'bg-landing2.jpg' %>");'>
 
   <div class="landing-content text-center">
-    <%= image_tag 'mustachio-logo.png', class: 'logo-responsive main-logo' %>
+    <%= image_tag 'mustachio-logo.png', class: 'logo-responsive' %>
     <div>
       <%= image_tag 'logo-tag-blanc.png', class: 'logo-responsive home-logo'%>
     </div>
 
     <!-- <h3>Share with your friends, enjoy your me time</h3> -->
     <% if user_signed_in? %>
-    <div><%=link_to "Start now", collections_path, class: 'btn btn-signin'%></div>
+    <div><%=link_to "Start now", collections_path, class: 'btn'%></div>
     <div id='sign-out'>
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
     </div>
     <% else %>
     <div>
-      <%= link_to "Sign in", new_user_session_path, class: 'btn btn-signin'%>
+      <%= link_to "Sign in", new_user_session_path, class: 'btn'%>
 
     </div>
     <div id='sign-up'>
