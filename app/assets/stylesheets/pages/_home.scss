@@ -3,23 +3,26 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-
+//Used in home and signup pages
 #bg-landing {
  // background-image: url("bg-landing2.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
+//Used in home page for tagline
+.tag-line h3{
+  color: white;
+  font-weight: lighter;
+}
+
+//Used in home page
 #sign-out{
     position: absolute;
     top: 20px;
     right: 20px;
 }
-
 #sign-out a{
   color: white;
   font-weight: lighter;
@@ -27,7 +30,6 @@
   font-size: 14px;
   text-decoration: underline;
 }
-
 #sign-out a:hover{
   color: #85EBBC;
   font-weight: lighter;
@@ -35,7 +37,6 @@
   font-size: 14px;
   text-decoration: underline;
 }
-
 #sign-up a{
   color: white;
   font-weight: lighter;
@@ -43,7 +44,6 @@
   font-size: 1.75vh;
   text-decoration: none;
 }
-
 #sign-up a:hover{
   color: #85EBBC;
   font-weight: lighter;
