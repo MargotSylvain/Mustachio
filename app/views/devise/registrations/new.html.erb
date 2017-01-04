@@ -1,60 +1,65 @@
-<div id="sign-up-page style='background-image: url("<%= image_path 'bg-landing2.jpg' %>"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);'">
+<div id="bg-landing" style='background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 30%), url("<%= image_path 'bg-landing2.jpg' %>");'>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center sign-in-title">
-      <%= image_tag 'welcome.png', class: 'welcome-logo' %>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-12 text-center" style='margin-top: 20px;'>
-    <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn-fb btn-signin' %><br />
-    <% end -%>
-    <% end -%>
-  </div>
 
-<!--   <div class="wrapper-green"> -->
+  <div class="container">
+
     <div class="row">
-      <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4", style='color: #383838'>
+      <%= image_tag 'welcome.png', class: 'welcome-logo center-block' %>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html=> { class: 'session-form' }) do |f| %>
-          <div class="form-inputs">
-            <%= f.input_field :username, required: false, autofocus: true, label: false, placeholder: "username", class: 'session-input'%>
-            <%= f.input_field :email, required: true, autofocus: true, label: false, placeholder: "email address", class: 'session-input' %>
-            <%= f.input_field :password, required: true , label: false, placeholder: "password", class: 'session-input'%>
-            <%= f.input_field :password_confirmation, required: true, label: false, placeholder: " confirm password", class: 'session-input' %>
-            <%= f.input :photo, label: false %>
-            <%= f.input :photo_cache, as: :hidden %>
-          <div class="form-actions text-center">
-            <%= image_submit_tag("logo-white.png", class: 'image-responsive sign-in-logo') %>
+        <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+        <div class="text-center">
+          <%= link_to "Use #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn-fb' %>
+        </div>
+        <% end -%>
+        <% end -%>
+        <p class="sing-up-or">OR</p>
+        <div class="form-inputs">
+          <%= f.input_field :username, required: false, autofocus: true, label: false, placeholder: "username", class: 'session-input'%>
+          <%= f.input_field :email, required: true, autofocus: true, label: false, placeholder: "email address", class: 'session-input' %>
+          <%= f.input_field :password, required: true , label: false, placeholder: "password", class: 'session-input'%>
+          <%= f.input_field :password_confirmation, required: true, label: false, placeholder: " confirm password", class: 'session-input' %>
+          <%= f.input :photo, label: "Profile pic:" %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <div class="text-center">
+            <%= f.button :submit, class: 'btn'%>
           </div>
-          </div>
+
+        </div>
         <% end %>
       </div>
-      <div class="col-xs-offset-2 col-xs-8 col-sm-4 col-md-4 col-sm-offset-0 about">
-        <div class="form-about">
-          <h4 class='about-title text-center'>Enjoy your me time</h4>
-          <h5 class='text-center'>Collection</h5>
-          <ul>
-            <li>Create your collection of movies</li>
-            <li>Customize your collection with lists, tags, ratings and movie review</li>
-          </ul>
-          <h5 class='text-center'>Friends</h5>
-          <ul>
-            <li>Explore your friends's collections</li>
-            <li>Share your lists with your love ones</li>
-          </ul>
-           <h5 class='text-center'>Must</h5>
-          <ul>
-            <li>See what you MUST see!!</li>
-            <li>No more time wasted choosing what to watch</li>
-          </ul>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="about">
+          <div class="bckg-about">
+            <%= image_tag 'mustachio-logo-green.png', class: 'about-logo center-block' %>
+            <!-- <h5 class='about-title text-center'>What is Mustachio?</h5> -->
+            <div class='about-content text-center'>
+              <p class='about-title'>Collection </p>
+              <li>Create your collection of movies.</li>
+              <li>Customize your collection with lists, tags, ratings and movie review.</li>
+            </div>
+            <div class='about-content text-center'>
+              <p class='about-title'>Friends</p>
+              <li>Explore your friends' collections.</li>
+              <li>Share your lists with your loved ones.</li>
+            </div>
+            <div class='about-content text-center'>
+              <p class='about-title'>Must</p>
+              <li>See what you MUST see!!</li>
+              <li>No more time wasted choosing what to watch.</li>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-<!--   </div> -->
-
+  </div>
+</div>
 </div>
 
 

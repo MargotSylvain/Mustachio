@@ -1,4 +1,4 @@
-// sign in styles
+//these need to have comments on where they are used:
 #sign-in {
   // background-image: url("bg-landing2.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
   background-repeat: no-repeat;
@@ -9,25 +9,51 @@
   color: white;
   margin-top: 10vh;
 }
-
 .fb-signin a{
   color: white;
   font-size: 2.5vh;
 }
-
-// sign up styles
-#sign-up-page {
-  background-image: url("bg-landing2.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+// Wrappers
+.wrapper-white{
+  background-color: RGBA(255, 255, 255, 0.60);
+  padding: 10px;
 }
-
-.sign-up-title{
-  color: white;
-  margin-top: 10vh;
+.wrapper-green{
+  background-color: RGBA(133, 235, 188, 0.60);
+  padding: 10px;
+  margin: 20px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
 }
+//Don't think this one is used
+// .sign-up-title{
+//   color: white;
+//   margin-top: 10vh;
+// }
 
+
+//Don't think this one is used
+// #sign-up-page {
+//   background-image: url("bg-landing2.jpg"), linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%);
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 100vh;
+// }
+
+
+///////////////Below these are used for sure
+
+//Used in the singin/signup form
+.session-form{
+  // width: 500px;
+  padding: 30px;
+  background: RGBA(255, 255, 255, .90);
+  margin: 20px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
 .session-input {
   outline: none;
   display: block;
@@ -40,69 +66,58 @@
   font: 100% Arial, Helvetica, sans-serif;
   height: 45px;
 }
-
-// Wrappers
-.wrapper-white{
-  background-color: RGBA(255, 255, 255, 0.60);
-  padding: 10px;
-}
-
-.wrapper-green{
-  background-color: RGBA(133, 235, 188, 0.60);
-  padding: 10px;
-  margin: 20px auto;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-}
-
-
-.session-form{
-  // width: 500px;
-  padding: 30px;
-  background: RGBA(255, 255, 255, .90);
-  margin: 20px auto;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
-}
 .session-form a{
-  // background: #4D4D4D;
-  text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #383838;
-  font-size: 18px;
-  font-weight: 100;
-  padding: 20px;
-  margin: -30px -30px 30px -30px;
+  color: white;
+  font-size: 14px;
+  font-weight: lighter;
+  // text-transform: capitalize;
+  padding: 10px 25px ;
+}
+
+
+//Used in the "about" part of the signup page
+.about-content{
+  margin: 40px 0px;
 }
 
 .about-title{
-  padding-bottom: 24px;
-  color: white;
+  color: #383838;
+  font-size: 18px;
+  font-weight: bold;
   text-center: true;
+  margin-bottom: 0px;
 }
 .about h5{
-  color: #383838;
-  font-size: 14px;
+  color: #85EBBC;
   font-weight: bold;
 }
 .about li{
   color: #383838;
   list-style: none;
   text-decoration: none;
-  text-align: left;
+  text-align: center;
   font-size: 14px;
-  padding: 0 0 px;
+  padding: 0px 10px;
+  // margin-bottom: 10px;
+  // margin: 0 0
  }
-.form-about{
+.bckg-about{
   // width: 500px;
-  padding: 30px;
-  background-color: RGBA(133, 235, 188, 0.90);
+  padding: 30px 30px;
+  background-color: RGBA(255, 255, 255, .90);
   margin: 20px auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
   -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
+  height: 495px;
 }
+
+//Used for the or in the singup page
+.sing-up-or{
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+
+

@@ -1,11 +1,10 @@
+//All these need to be commented on where they are used
 .logo-responsive{
   display: block;
   max-width: 60%;
   height: auto;
   margin: 0 auto;
-
 }
-
 .main-logo-public-profile{
   width: 25vw;
 }
@@ -15,11 +14,6 @@
   padding: 2px 2px;
   border-radius: 50%;
 }
-
-.welcome-logo{
-  width: 300px;
-}
-
 .search-logo{
   width: 35px;
   background-color: #85EBBC;
@@ -28,20 +22,29 @@
   margin-left: 10px;
   border-radius: 50%;
 }
-
 .logo-movie{
   height: 100px;
 }
-
 .tags-logo{
   width: 30px;
   background-color: #85EBBC;
   padding: 2px 2px;
   border-radius: 50%;
 }
-
 .displayed {
     display: block;
     margin-left: auto;
     margin-right: auto }
+
+
+
+//Used in the signup page
+.welcome-logo{
+  width: 300px;
+  // margin: 20px;
+  // margin-top: 10px;
+}
+.about-logo{
+  width: 250px;
+}
 
