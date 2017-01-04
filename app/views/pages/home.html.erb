@@ -1,30 +1,32 @@
-
-
 <div id="bg-landing" style='background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 30%), url("<%= image_path 'bg-landing2.jpg' %>");'>
+  <div class="text-center">
 
-  <div class="landing-content text-center">
-    <%= image_tag 'mustachio-logo.png', class: 'logo-responsive' %>
-    <div>
-      <%= image_tag 'logo-tag-blanc.png', class: 'logo-responsive home-logo'%>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= image_tag 'mustachio-logo.png', class: 'home-logo' %>
+        </div>
+      </div>
     </div>
 
-    <!-- <h3>Share with your friends, enjoy your me time</h3> -->
-    <% if user_signed_in? %>
-    <div><%=link_to "Start now", collections_path, class: 'btn'%></div>
-    <div id='sign-out'>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
-    </div>
-    <% else %>
-    <div>
-      <%= link_to "Sign in", new_user_session_path, class: 'btn'%>
+    <div class="wrapper-green">
+      <div class="tag-line">
+        <h3>Share with your friends, enjoy your me time</h3>
+      </div>
 
+      <% if user_signed_in? %>
+        <div><%=link_to "Start now", collections_path, class: 'btn'%></div>
+        <div id='sign-out'>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+        </div>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: 'btn'%>
+        <div id='sign-up'>
+          <%= link_to "Not on Mustachio?", new_user_registration_path %>
+        </div>
+      <% end %>
     </div>
-    <div id='sign-up'>
-      <%= link_to "Not on Mustachio?", new_user_registration_path %>
-    </div>
-    <% end %>
+
   </div>
-
 </div>
-
 
